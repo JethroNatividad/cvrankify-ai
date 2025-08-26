@@ -10,7 +10,7 @@ A FastAPI-based application for CV ranking and analysis using AI.
 
 ## Prerequisites
 
-- Python 3.7 or higher
+- Python 3.11 or higher
 - pip (Python package installer)
 
 ## Installation & Setup
@@ -61,29 +61,3 @@ python -m fastapi run main.py
 Once the server is running, you can access:
 - **Swagger UI**: Navigate to http://localhost:8000/docs for interactive API documentation
 - **ReDoc**: Navigate to http://localhost:8000/redoc for alternative documentation format
-
-## Project Structure
-
-```
-cvrankify-ai/
-├── main.py              # Main application file
-├── requirements.txt     # Python dependencies
-├── readme.md           # Project documentation
-└── env/                # Virtual environment (created after setup)
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test your changes
-5. Submit a pull request
-
-## License
-
-[Add your license information here]
-
-## Support
-
-For questions or support, please [add contact information or issue tracker link].
