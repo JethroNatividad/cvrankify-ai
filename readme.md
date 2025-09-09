@@ -1,16 +1,18 @@
 # CVRankify AI
 
-A FastAPI-based application for CV ranking and analysis using AI.
+A Redis-based job processing worker for CV ranking and analysis using AI.
 
 ## Features
 
-- Built with FastAPI for high-performance API development
+- Built with BullMQ for reliable job queue processing
+- Redis-based job queue for scalable task management
+- Asynchronous job processing with graceful shutdown handling
 - AI-powered CV analysis and ranking capabilities
-- RESTful API endpoints for easy integration
 
 ## Prerequisites
 
 - Python 3.11 or higher
+- Redis server running on localhost:6379 (or configure connection string)
 - pip (Python package installer)
 
 ## Installation & Setup
@@ -35,29 +37,25 @@ A FastAPI-based application for CV ranking and analysis using AI.
 
 4. **Install dependencies**
    ```bash
-   pip install -r requirements.txt
-   pip install "fastapi[standard]"
+   pip install bullmq
    ```
 
-## Running the Application
-
-### Development Mode
+### Start the Worker
 ```bash
-python -m fastapi dev main.py
+python main.py
 ```
 
-The application will be available at:
-- **API**: http://localhost:8000
-- **Interactive Documentation**: http://localhost:8000/docs
-- **ReDoc Documentation**: http://localhost:8000/redoc
+The worker will:
+- Connect to Redis on `localhost:6379`
+- Listen for jobs in the `cvrankify-jobs` queue
+- Process jobs asynchronously with the defined job handler
+- Handle graceful shutdown on SIGTERM/SIGINT signals
 
-### Production Mode
-```bash
-python -m fastapi run main.py
-```
+### Stopping the Worker
+Use `Ctrl+C` to gracefully shut down the worker.
 
-## API Documentation
+## Configuration
 
-Once the server is running, you can access:
-- **Swagger UI**: Navigate to http://localhost:8000/docs for interactive API documentation
-- **ReDoc**: Navigate to http://localhost:8000/redoc for alternative documentation format
+- **Redis Connection**: Modify the connection string in `main.py` if your Redis server is not on localhost:6379
+- **Queue Name**: The worker listens to the `cvrankify-jobs` queue by default
+- **Job Processing**: Customize the `process` function in `main.py` to implement your CV analysis logic
