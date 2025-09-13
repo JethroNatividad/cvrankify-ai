@@ -1,41 +1,43 @@
-import pdfplumber
+from pdfminer.high_level import extract_text
 from ollama import Client
 
-pdf_path = "in.pdf"
-pdf_txt_output = "out.txt"
+pdf_path = "resumes/in.pdf"
+pdf_txt_output = "resumes/out.txt"
 
-out = open(pdf_txt_output, "wb")
+text = extract_text(pdf_path)
+# clean up text a bit
+text = "\n".join(line.strip() for line in text.splitlines() if line.strip())
 
-with pdfplumber.open(pdf_path) as pdf:
-    for page in pdf.pages:
-        text = page.extract_text()
-        if text:
-            out.write(text.encode("utf8"))
-            out.write(b"\n\n")
-    out.close()
-
+with open(pdf_txt_output, "w") as f:
+    f.write(text)
 
 client = Client()
 
 prompt = """
-The following text is unstructured (from a PDF). Ignore formatting issues and focus only on finding the required fields.
+The following text is unstructured (from a PDF). Ignore formatting issues.
 
-Extract and return the result strictly as valid JSON. Do not include explanations, notes, or extra text. 
+Extract and return strictly valid JSON. Do not include explanations, notes, or extra text.
 
 Fields to extract:
 - skills → list of skills mentioned (technical or soft).
 - highestEducationDegree → one of: "High School", "Bachelor", "Master", "PhD", or "Unknown".
 - educationField → main study field of the highest degree, or "Unknown".
 - timezone → format "GMT+X" or "GMT-X", or "Unknown".
-- yearsOfExperience → integer years of professional experience (from text or date ranges). If unclear, return "Unknown".
+- experiencePeriods → list of objects, each with "startYear" and "endYear". 
+  - Include only years that appear in WORK EXPERIENCE, JOBS, INTERNSHIPS, or PROFESSIONAL HISTORY.
+  - Do not include years from education, certifications, or training.
+  - Use "Present" if ongoing.
+  - Use only numeric years (YYYY).
 
 Return output only in this JSON format:
 {{
-  "skills": [],
+  "skills": ["skill1", "skill2"],
   "highestEducationDegree": "Unknown",
   "educationField": "Unknown",
   "timezone": "Unknown",
-  "yearsOfExperience": "Unknown"
+  "experiencePeriods": [
+    {{ "startYear": "YYYY", "endYear": "YYYY" }},
+  ]
 }}
 
 Text:
@@ -43,13 +45,11 @@ Text:
 
 """
 
-with open(pdf_txt_output, "r") as f:
-    text = f.read()
-    prompt = prompt.format(text=text)
+prompt = prompt.format(text=text)
 
 
 response = client.chat(
-    model="llama3.1:8b",
+    model="qwen3:8b",
     messages=[
         {
             "role": "user",
