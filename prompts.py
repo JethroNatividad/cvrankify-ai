@@ -11,7 +11,7 @@ content: |
   Rules:
     - highestEducationDegree -> one of: "High School", "Bachelor", "Master", "PhD", or "Unknown".
     - educationField -> main study field of the highest degree, or "Unknown".
-    - timezone -> format "GMT+X" or "GMT-X", or "Unknown".  Extract from address, phone number, or other location hints.
+    - timezone -> format as Greenwich Mean Time (GMT) "GMT+X" or "GMT-X".  Extract from address, phone number, or other location hints.
     - Ignore formatting issues.
     - Output must be strictly valid JSON.
 
