@@ -1,0 +1,62 @@
+{
+  "resume": "hai.pdf",
+  "model": "llama3.1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Programming for Beginners using Python",
+          "Free Coding Bootcamp: Basic Web Development Workshop",
+          "Project Management Essentials",
+          "On Air : Digital TV Broadcasting in Today's Technology",
+          "Introduction to CSS",
+          "Installing and Configuring Computer Systems",
+          "Setting up Computer Servers",
+          "Setting Up Computer Networks",
+          "Maintaning Computer Systems and Networks"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2027"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.4,
+        "skills_recall": 1.0,
+        "skills_f1": 0.5714285714285715,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.4,
+    "skills_recall": 1.0,
+    "skills_f1": 0.5714285714285715,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

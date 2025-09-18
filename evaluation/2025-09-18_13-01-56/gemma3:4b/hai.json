@@ -1,0 +1,54 @@
+{
+  "resume": "hai.pdf",
+  "model": "gemma3:4b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+0",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Installing and Configuring Computer Systems",
+          "Setting Up Computer Networks",
+          "Maintaining Computer Systems and Networks"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 0.0,
+        "skills_precision": 0.5454545454545454,
+        "skills_recall": 1.0,
+        "skills_f1": 0.7058823529411764,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 0.0,
+    "skills_precision": 0.5454545454545454,
+    "skills_recall": 1.0,
+    "skills_f1": 0.7058823529411764,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

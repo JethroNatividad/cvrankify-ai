@@ -8,6 +8,7 @@ from prompts import (
 )
 from utils import clean_response, extract_pdf_text
 from ollama import Client
+from extract2 import extract_text_word_level_columns
 
 client = Client()
 
@@ -30,7 +31,7 @@ runs_per_model = 1
 
 for pdf_file, expected_output_path in evaluation_dataset.items():
     with open(os.path.join("resumes", pdf_file), "rb") as resume_pdf:
-        pdf_text = extract_pdf_text(resume_pdf)
+        pdf_text = extract_text_word_level_columns(resume_pdf)
         print(f"Evaluating {pdf_file}...")
 
         for model in models:

@@ -1,0 +1,53 @@
+{
+  "resume": "hai.pdf",
+  "model": "deepseek-r1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "Unknown",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2023",
+            "endYear": null
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 0.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 0.0,
+    "skills_precision": 1.0,
+    "skills_recall": 1.0,
+    "skills_f1": 1.0,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

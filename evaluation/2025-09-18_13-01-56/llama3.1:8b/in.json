@@ -1,0 +1,82 @@
+{
+  "resume": "in.pdf",
+  "model": "llama3.1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Facebook Admin & Technical Support (Part-time)",
+          "Photoshop (Basic Layout)",
+          "Canva",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": ""
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9629629629629629,
+        "skills_recall": 0.8666666666666667,
+        "skills_f1": 0.912280701754386,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.9629629629629629,
+    "skills_recall": 0.8666666666666667,
+    "skills_f1": 0.912280701754386,
+    "experiencePeriods_accuracy": 0.6666666666666666
+  }
+}

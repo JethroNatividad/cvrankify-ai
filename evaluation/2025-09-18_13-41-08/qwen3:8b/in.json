@@ -1,0 +1,6 @@
+{
+  "resume": "in.pdf",
+  "model": "qwen3:8b",
+  "runs": [],
+  "average_metrics": {}
+}
