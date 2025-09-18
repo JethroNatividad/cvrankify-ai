@@ -1,0 +1,91 @@
+{
+  "resume": "in.pdf",
+  "model": "gemma3:4b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Microsoft 365 & Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9166666666666666,
+        "skills_recall": 0.7333333333333333,
+        "skills_f1": 0.8148148148148148,
+        "experiencePeriods_accuracy": 0.3333333333333333
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.9166666666666666,
+    "skills_recall": 0.7333333333333333,
+    "skills_f1": 0.8148148148148148,
+    "experiencePeriods_accuracy": 0.3333333333333333
+  }
+}

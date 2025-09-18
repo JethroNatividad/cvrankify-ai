@@ -1,0 +1,419 @@
+{
+  "resume": "in.pdf",
+  "model": "gemma3:4b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Microsoft 365 & Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2015",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2024"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9166666666666666,
+        "skills_recall": 0.7333333333333333,
+        "skills_f1": 0.8148148148148148,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Microsoft 365 & Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "Microsoft 365 & Google Apps",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2015",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2024"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9375,
+        "skills_recall": 1.0,
+        "skills_f1": 0.967741935483871,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2024"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2024"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9090909090909091,
+        "skills_recall": 1.0,
+        "skills_f1": 0.9523809523809523,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Master",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2015",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2024"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 0.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9090909090909091,
+        "skills_recall": 1.0,
+        "skills_f1": 0.9523809523809523,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2024"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.9090909090909091,
+        "skills_recall": 1.0,
+        "skills_f1": 0.9523809523809523,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 0.8,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.9162878787878788,
+    "skills_recall": 0.9466666666666667,
+    "skills_f1": 0.9279399214883087,
+    "experiencePeriods_accuracy": 0.5666666666666667
+  }
+}

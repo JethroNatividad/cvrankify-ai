@@ -1,0 +1,86 @@
+{
+  "resume": "in.pdf",
+  "model": "deepseek-r1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science Major in Software Technology",
+        "timezone": "GMT+X",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "Teams",
+          "SharePoint",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 0.0,
+        "timezone": 0.0,
+        "skills_precision": 1.0,
+        "skills_recall": 0.9,
+        "skills_f1": 0.9473684210526316,
+        "experiencePeriods_accuracy": 0.8333333333333334
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 0.0,
+    "timezone": 0.0,
+    "skills_precision": 1.0,
+    "skills_recall": 0.9,
+    "skills_f1": 0.9473684210526316,
+    "experiencePeriods_accuracy": 0.8333333333333334
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "resume": "hai.pdf",
+  "model": "qwen3:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "Interpersonal Skills",
+          "Paper Management",
+          "Basic Python Programming",
+          "AutoCAD",
+          "People and Project Management",
+          "Electronics Engineer",
+          "Electronics Technician",
+          "Customer Sales Representative",
+          "Technical Intern",
+          "Programming for Beginners using Python",
+          "Free Coding Bootcamp: Basic Web Development Workshop",
+          "Project Management Essentials",
+          "On Air : Digital TV Broadcasting in Today's Technology",
+          "Introduction to CSS",
+          "Installing and Configuring Computer Systems",
+          "Setting up Computer Servers",
+          "Public Relations Officer",
+          "Circulations Manager",
+          "Overall Coordinator",
+          "Top Performing Officer",
+          "Service Award",
+          "Quill Award",
+          "Setting Up Computer Networks",
+          "Maintaning Computer Systems and Networks"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "2027"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.24,
+        "skills_recall": 1.0,
+        "skills_f1": 0.3870967741935484,
+        "experiencePeriods_accuracy": 0.5
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.24,
+    "skills_recall": 1.0,
+    "skills_f1": 0.3870967741935484,
+    "experiencePeriods_accuracy": 0.5
+  }
+}

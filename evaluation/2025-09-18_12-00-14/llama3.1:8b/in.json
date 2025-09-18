@@ -1,0 +1,397 @@
+{
+  "resume": "in.pdf",
+  "model": "llama3.1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science, Software Technology",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 0.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "March 2023",
+            "endYear": "July 2023"
+          },
+          {
+            "startYear": "June 2022",
+            "endYear": "December 2022"
+          },
+          {
+            "startYear": "2020"
+          },
+          {
+            "startYear": "May 2019",
+            "endYear": "October 2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "ISO Process & Flowcharts",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.967741935483871,
+        "skills_recall": 1.0,
+        "skills_f1": 0.9836065573770492,
+        "experiencePeriods_accuracy": 0.5
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science Major in Software Technology",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Minutes of Meetings",
+          "Reports",
+          "Personnel Orders",
+          "Process mapping & documentation",
+          "Canva",
+          "Photoshop (Basic Layout)",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2005",
+            "endYear": "2011"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 0.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.8333333333333334
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 0.6,
+    "timezone": 1.0,
+    "skills_precision": 0.9935483870967742,
+    "skills_recall": 1.0,
+    "skills_f1": 0.9967213114754099,
+    "experiencePeriods_accuracy": 0.6333333333333333
+  }
+}

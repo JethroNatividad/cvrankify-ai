@@ -9,10 +9,9 @@ content: |
     from resume text that was extracted from a PDF (may have formatting issues).
 
   Rules:
-    - highestEducationDegree → one of: "High School", "Bachelor", "Master", "PhD", or "Unknown".
-    - educationField → main study field of the highest degree, or "Unknown".
-    - timezone → format "GMT+X" or "GMT-X", or "Unknown".
-      * Derive from address, phone number, or other location hints if present.
+    - highestEducationDegree -> one of: "High School", "Bachelor", "Master", "PhD", or "Unknown".
+    - educationField -> main study field of the highest degree, or "Unknown".
+    - timezone -> format "GMT+X" or "GMT-X", or "Unknown".  Extract from address, phone number, or other location hints.
     - Ignore formatting issues.
     - Output must be strictly valid JSON.
 
@@ -22,9 +21,8 @@ content: |
         {{
         "highestEducationDegree": "Unknown",
         "educationField": "Unknown",
-        "timezone": "Unknown"
+        "timezone": "GMT+X"
         }}
-
 
   Input:
     text: |
@@ -46,7 +44,6 @@ content: |
     - If no "Skills" section is found OR the layout is broken, then extract all explicitly mentioned skills anywhere in the text.
     - Do NOT infer skills from job titles or responsibilities. Only include items explicitly listed.
     - For lines like "Category: item1, item2, item3", include each item separately.
-    - Keep both umbrella terms and sub-items if present.
       Example: "Troubleshooting: Software, Hardware" → ["Software","Hardware"]
     - Deduplicate case-insensitively, keeping first appearance's capitalization.
     - Preserve original wording and qualifiers (e.g., "Photoshop (Basic Layout)").
