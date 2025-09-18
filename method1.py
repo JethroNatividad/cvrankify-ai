@@ -100,6 +100,7 @@ for model in models:
                     "content": prompt,
                 },
             ],
+            think=False,
         )
 
         print(response["message"]["content"])

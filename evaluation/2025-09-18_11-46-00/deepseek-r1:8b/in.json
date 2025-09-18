@@ -1,0 +1,61 @@
+{
+  "resume": "in.pdf",
+  "model": "deepseek-r1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Software Technology",
+        "timezone": "GMT+8",
+        "skills": [
+          "Programming",
+          "Documentation",
+          "ISO Process & Flowcharts",
+          "Design",
+          "Microsoft 365 & Google Apps",
+          "Troubleshooting"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYears": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 0.0,
+        "timezone": 1.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "experiencePeriods_accuracy": 0.6666666666666666
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 0.0,
+    "timezone": 1.0,
+    "skills_precision": 0.0,
+    "skills_recall": 0.0,
+    "skills_f1": 0.0,
+    "experiencePeriods_accuracy": 0.6666666666666666
+  }
+}

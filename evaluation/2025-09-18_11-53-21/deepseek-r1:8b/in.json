@@ -1,0 +1,77 @@
+{
+  "resume": "in.pdf",
+  "model": "deepseek-r1:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science Major in Software Technology",
+        "timezone": "GMT+Unknown",
+        "skills": [
+          "Technical Skills",
+          "Process & Flowcharts",
+          "Documentation",
+          "Design",
+          "Microsoft 365 & Google Apps",
+          "Troubleshooting"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2015",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "2015"
+          },
+          {
+            "startYear": "2005",
+            "endYear": "2011"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 0.0,
+        "timezone": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "experiencePeriods_accuracy": 0.8333333333333334
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 0.0,
+    "timezone": 0.0,
+    "skills_precision": 0.0,
+    "skills_recall": 0.0,
+    "skills_f1": 0.0,
+    "experiencePeriods_accuracy": 0.8333333333333334
+  }
+}
