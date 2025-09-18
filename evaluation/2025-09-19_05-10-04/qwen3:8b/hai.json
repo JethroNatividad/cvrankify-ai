@@ -1,0 +1,217 @@
+{
+  "resume": "hai.pdf",
+  "model": "qwen3:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2024"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "2024"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2027"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2024"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2027"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2024",
+            "endYear": "2027"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 1.0,
+    "skills_recall": 1.0,
+    "skills_f1": 1.0,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

@@ -27,7 +27,7 @@ os.makedirs(os.path.join("evaluation", output_dir), exist_ok=True)
 
 # models = ["deepseek-r1:8b", "llama3.1:8b"]
 models = ["qwen3:8b", "deepseek-r1:8b", "llama3.1:8b", "gemma3:4b"]
-runs_per_model = 1
+runs_per_model = 5
 
 for pdf_file, expected_output_path in evaluation_dataset.items():
     with open(os.path.join("resumes", pdf_file), "rb") as resume_pdf:
@@ -104,7 +104,15 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                     continue
 
                 # Calculate metrics
-                metrics = {}
+                metrics = {
+                    "highestEducationDegree": 0.0,
+                    "educationField": 0.0,
+                    "timezone": 0.0,
+                    "skills_precision": 0.0,
+                    "skills_recall": 0.0,
+                    "skills_f1": 0.0,
+                    "experiencePeriods_accuracy": 0.0,
+                }
                 with open(os.path.join("resumes", expected_output_path), "r") as f:
                     expected_output = json.load(f)
                     # highestEducationDegree, educationField, timezone = exact match
@@ -147,14 +155,14 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                         metrics["skills_precision"] = 0.0
                         metrics["skills_recall"] = 0.0
                         metrics["skills_f1"] = 0.0
-                    # experiencePeriods = accuracy (exact match of list of dicts)
+                    # experiencePeriods = accuracy (exact match of list of dicts, order-independent)
                     if (
                         "experiencePeriods" in expected_output
                         and "experiencePeriods" in predicted
                     ):
                         expected_experience = expected_output["experiencePeriods"]
                         predicted_experience = predicted["experiencePeriods"]
-                        # Convert dicts to tuples of sorted items for hashability
+                        # Convert dicts to tuples of sorted items for hashability (order-independent comparison)
                         expected_tuples = set(
                             tuple(sorted(exp.items())) for exp in expected_experience
                         )

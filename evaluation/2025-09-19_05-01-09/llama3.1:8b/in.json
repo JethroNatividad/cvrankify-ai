@@ -1,0 +1,6 @@
+{
+  "resume": "in.pdf",
+  "model": "llama3.1:8b",
+  "runs": [],
+  "average_metrics": {}
+}

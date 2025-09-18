@@ -1,0 +1,235 @@
+{
+  "resume": "hai.pdf",
+  "model": "gemma3:4b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Computer Systems",
+          "Computer Networks",
+          "Installing and Configuring Computer Systems",
+          "Maintaining Computer Systems and Networks",
+          "Paper Management"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.4166666666666667,
+        "skills_recall": 0.8333333333333334,
+        "skills_f1": 0.5555555555555556,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Installing and Configuring Computer Systems",
+          "Setting Up Computer Servers",
+          "Setting Up Computer Networks",
+          "Maintaining Computer Systems and Networks"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.5,
+        "skills_recall": 1.0,
+        "skills_f1": 0.6666666666666666,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Web Development"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.6666666666666666,
+        "skills_recall": 1.0,
+        "skills_f1": 0.8,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Computer Systems",
+          "Computer Networks",
+          "Python Programming",
+          "Team Management",
+          "Project Management"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.46153846153846156,
+        "skills_recall": 1.0,
+        "skills_f1": 0.631578947368421,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Computer Systems",
+          "Computer Networks",
+          "Python Programming",
+          "Computer Systems",
+          "Computer Networks",
+          "Electronics Engineering Department"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.5,
+        "skills_recall": 1.0,
+        "skills_f1": 0.6666666666666666,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.508974358974359,
+    "skills_recall": 0.9666666666666668,
+    "skills_f1": 0.664093567251462,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

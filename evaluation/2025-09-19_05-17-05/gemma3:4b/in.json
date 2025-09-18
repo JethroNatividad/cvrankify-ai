@@ -1,0 +1,375 @@
+{
+  "resume": "in.pdf",
+  "model": "gemma3:4b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Canva",
+          "Photoshop",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "July 2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "December 2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "December 2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "October 2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8928571428571429,
+        "skills_recall": 0.8333333333333334,
+        "skills_f1": 0.8620689655172413,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Canva",
+          "Photoshop",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "July 2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "December 2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "December 2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "October 2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8928571428571429,
+        "skills_recall": 0.8333333333333334,
+        "skills_f1": 0.8620689655172413,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Canva",
+          "Photoshop",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "July 2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "December 2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "December 2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "October 2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8928571428571429,
+        "skills_recall": 0.8333333333333334,
+        "skills_f1": 0.8620689655172413,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Canva",
+          "Photoshop",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "July 2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "December 2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "December 2021"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "October 2021"
+          },
+          {
+            "startYear": "2015",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8928571428571429,
+        "skills_recall": 0.8333333333333334,
+        "skills_f1": 0.8620689655172413,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "SQL",
+          "MySQL",
+          "VB.Net",
+          "C#",
+          "C++",
+          "Java",
+          "Processing",
+          "HTML",
+          "Bootstrap",
+          "Canva",
+          "Photoshop",
+          "Microsoft 365",
+          "Google Apps",
+          "Word",
+          "Excel",
+          "PowerPoint",
+          "Outlook",
+          "SharePoint",
+          "Teams",
+          "Power Automate",
+          "Docs",
+          "Sheets",
+          "Forms",
+          "Drive",
+          "Calendar",
+          "Software",
+          "Hardware",
+          "Networking Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2024",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "July 2023"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "December 2022"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "December 2021"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "Present"
+          },
+          {
+            "startYear": "2019",
+            "endYear": "October 2021"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8928571428571429,
+        "skills_recall": 0.8333333333333334,
+        "skills_f1": 0.8620689655172413,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.8928571428571429,
+    "skills_recall": 0.8333333333333334,
+    "skills_f1": 0.8620689655172413,
+    "experiencePeriods_accuracy": 0.16666666666666666
+  }
+}

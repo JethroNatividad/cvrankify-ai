@@ -1,0 +1,58 @@
+{
+  "resume": "hai.pdf",
+  "model": "gemma3:4b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Electronics Engineering",
+        "timezone": "GMT+8",
+        "skills": [
+          "Microsoft Office",
+          "AutoCAD",
+          "Interpersonal Skills",
+          "People and Project Management",
+          "Paper Management",
+          "Basic Python Programming",
+          "Digital TV Broadcasting",
+          "CSS",
+          "Computer Systems",
+          "Computer Networks",
+          "Team Coordination",
+          "Event Coordination",
+          "Publication Management",
+          "Supply Management",
+          "Equipment Management"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2019",
+            "endYear": "2019"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2022"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.4,
+        "skills_recall": 1.0,
+        "skills_f1": 0.5714285714285715,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.4,
+    "skills_recall": 1.0,
+    "skills_f1": 0.5714285714285715,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

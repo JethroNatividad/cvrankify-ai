@@ -64,38 +64,47 @@ content: |
 experience_prompt = """
 role: system
 content: |
-  You are a strict JSON extractor.
-  You Extract and return strictly valid JSON. You Do NOT include explanations, notes, or extra text.
+  You are a strict JSON extractor that MUST follow the exact schema provided.
+  Extract and return ONLY valid JSON. NO explanations, notes, or extra text.
 
   Task:
     Extract work experience periods (jobs, internships, professional history) 
     from resume text that was extracted from a PDF (may have formatting issues).
-    Extract and return strictly valid JSON. Do not include explanations, notes, or extra text.
 
-  Rules:
-    - Each entry must follow this schema:
+  CRITICAL SCHEMA REQUIREMENTS:
+    - MUST use exactly "startYear" and "endYear" as keys
+    - NEVER use "start", "end", or any other key names
+    - Each entry MUST follow this EXACT schema:
       {{
         "startYear": "YYYY",
         "endYear": "YYYY"
       }}
-    - Use "Present" if the position is ongoing.
-    - Use only numeric years (YYYY).
-    - Do NOT include education, certifications, or training years.
-    - If only one year is mentioned, use it for both startYear and endYear.
-    - Do not include explanations, notes, or extra text.
 
-  Output:
-    Strictly return valid JSON in this format:
-      {{
-        "experiencePeriods": [
-          {{ "startYear": "YYYY", "endYear": "YYYY" }}
-        ]
-      }}
+  Rules:
+    - Use "Present" for ongoing positions (as endYear value)
+    - Use only 4-digit years (YYYY format)
+    - Do NOT include education, certifications, or training periods
+    - If only one year mentioned, use same year for both startYear and endYear
+    - MANDATORY: Every entry must have exactly "startYear" and "endYear" keys
+
+  REQUIRED OUTPUT FORMAT (follow exactly):
+    {{
+      "experiencePeriods": [
+        {{ "startYear": "YYYY", "endYear": "YYYY" }}
+      ]
+    }}
+
+  EXAMPLE:
+    {{
+      "experiencePeriods": [
+        {{ "startYear": "2020", "endYear": "2023" }},
+        {{ "startYear": "2023", "endYear": "Present" }}
+      ]
+    }}
 
   Input:
     text: |
       {text}
-
 """
 
 
