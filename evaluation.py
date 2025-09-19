@@ -25,8 +25,8 @@ for pdf in pdf_resumes:
 output_dir = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 os.makedirs(os.path.join("evaluation", output_dir), exist_ok=True)
 
-# models = ["deepseek-r1:8b", "llama3.1:8b"]
-models = ["qwen3:8b", "deepseek-r1:8b", "llama3.1:8b", "gemma3:4b"]
+models = ["qwen3:8b"]
+# models = ["qwen3:8b", "deepseek-r1:8b", "llama3.1:8b", "gemma3:4b"]
 runs_per_model = 5
 
 for pdf_file, expected_output_path in evaluation_dataset.items():

@@ -1,0 +1,194 @@
+{
+  "resume": "angelo.pdf",
+  "model": "qwen3:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "Development Tools",
+          "C++ Programming Language",
+          "Visual Basic 6.0",
+          "PHP Scripting Language",
+          "HTML/CSS",
+          "Mysql Database",
+          "Joomla",
+          "Media Design",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe After Effects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8461538461538461,
+        "skills_recall": 1.0,
+        "skills_f1": 0.9166666666666666,
+        "experiencePeriods_accuracy": 0.5
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "Visual Basic 6.0",
+          "PHP Scripting Language",
+          "HTML/CSS",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe After Effects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.5
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "Visual Basic 6.0",
+          "PHP Scripting Language",
+          "HTML/CSS",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe After Effects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.5
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "Visual Basic 6.0",
+          "PHP Scripting Language",
+          "HTML/CSS",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe After Effects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.5
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "Development Tools",
+          "C++ Programming Language",
+          "Visual Basic 6.0",
+          "PHP Scripting Language",
+          "HTML/CSS",
+          "Mysql Database",
+          "Joomla",
+          "Media Design",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe After Effects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.8461538461538461,
+        "skills_recall": 1.0,
+        "skills_f1": 0.9166666666666666,
+        "experiencePeriods_accuracy": 0.5
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.9384615384615385,
+    "skills_recall": 1.0,
+    "skills_f1": 0.9666666666666666,
+    "experiencePeriods_accuracy": 0.5
+  }
+}

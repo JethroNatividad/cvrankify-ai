@@ -1,0 +1,153 @@
+{
+  "resume": "in.pdf",
+  "model": "qwen3:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "Programming: SQL,MySQL,VB.NetC#,C++,Java, ProcessinHTMLBootstrap",
+          "Documentation: Minutes of Meeting Reports, Personn Orders",
+          "ISO Process  & Flowcharts: Proces mapping&documentation",
+          "Design: CanvaPhotoshop(BasLayout)",
+          "Microsoft 365 & Google Apps: Word,ExcelPowerPoinOutlook, SharePoinTeamsPowerAutomate, DocsSheetsFormsDrivCalendar",
+          "Troubleshooting: SoftwarHardwareNetworkinIssues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "Programming: SQL,MySQL,VB.NetC#,C++,Java, ProcessinHTMLBootstrap",
+          "Documentation: Minutes of Meeting Reports, Personn Orders",
+          "ISO Process  & Flowcharts: Proces mapping&documentation",
+          "Design: CanvaPhotoshop(BasLayout)",
+          "Microsoft 365 & Google Apps: Word,ExcelPowerPoinOutlook, SharePoinTeamsPowerAutomate, DocsSheetsFormsDrivCalendar",
+          "Troubleshooting: SoftwarHardwareNetworkinIssues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "Programming: SQL,MySQL,VB.NetC#,C++,Java, ProcessinHTMLBootstrap",
+          "Documentation: Minutes of Meeting Reports, Personn Orders",
+          "ISO Process  & Flowcharts: Proces mapping & documentation",
+          "Design: Canva Photoshop (Bas Layout)",
+          "Microsoft 365 & Google Apps: Word, Excel PowerPoin Outlook, SharePoin Teams PowerAutomate, Docs Sheets Forms Driv Calendar",
+          "Troubleshooting: Softwar Hardware Networkin Issues"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2020",
+            "endYear": "2020"
+          },
+          {
+            "startYear": "2020",
+            "endYear": "2021"
+          },
+          {
+            "startYear": "2021",
+            "endYear": "2022"
+          },
+          {
+            "startYear": "2022",
+            "endYear": "2023"
+          },
+          {
+            "startYear": "2023",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "experiencePeriods_accuracy": 0.16666666666666666
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 0.0,
+    "skills_recall": 0.0,
+    "skills_f1": 0.0,
+    "experiencePeriods_accuracy": 0.16666666666666666
+  }
+}

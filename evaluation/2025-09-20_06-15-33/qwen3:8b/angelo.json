@@ -1,0 +1,132 @@
+{
+  "resume": "angelo.pdf",
+  "model": "qwen3:8b",
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Unknown",
+        "educationField": "Unknown",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "VisualBasic6.0",
+          "PHP Scripting",
+          "HTML/CSS Language",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe AfterEffects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "2011"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 0.0,
+        "educationField": 0.0,
+        "timezone": 1.0,
+        "skills_precision": 0.6363636363636364,
+        "skills_recall": 0.6363636363636364,
+        "skills_f1": 0.6363636363636364,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Unknown",
+        "educationField": "Unknown",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "VisualBasic6.0",
+          "PHP Scripting",
+          "HTML/CSS Language",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe AfterEffects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "2011"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 0.0,
+        "educationField": 0.0,
+        "timezone": 1.0,
+        "skills_precision": 0.6363636363636364,
+        "skills_recall": 0.6363636363636364,
+        "skills_f1": 0.6363636363636364,
+        "experiencePeriods_accuracy": 1.0
+      }
+    },
+    {
+      "predicted": {
+        "highestEducationDegree": "Unknown",
+        "educationField": "Unknown",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "VisualBasic6.0",
+          "PHP Scripting",
+          "HTML/CSS Language",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe AfterEffects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "endYear": "2011"
+          },
+          {
+            "startYear": "2011",
+            "endYear": "Present"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 0.0,
+        "educationField": 0.0,
+        "timezone": 1.0,
+        "skills_precision": 0.6363636363636364,
+        "skills_recall": 0.6363636363636364,
+        "skills_f1": 0.6363636363636364,
+        "experiencePeriods_accuracy": 1.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 0.0,
+    "educationField": 0.0,
+    "timezone": 1.0,
+    "skills_precision": 0.6363636363636364,
+    "skills_recall": 0.6363636363636364,
+    "skills_f1": 0.6363636363636364,
+    "experiencePeriods_accuracy": 1.0
+  }
+}

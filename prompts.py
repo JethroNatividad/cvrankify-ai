@@ -43,8 +43,7 @@ content: |
     - If a clear "Skills" section is found (look for headers like "Skills", "Technical Skills", "Key Skills", "Core Competencies"), extract only the items listed under that section.
     - If no "Skills" section is found OR the layout is broken, then extract all explicitly mentioned skills anywhere in the text.
     - Do NOT infer skills from job titles or responsibilities. Only include items explicitly listed.
-    - For lines like "Category: item1, item2, item3", include each item separately.
-      Example: "Troubleshooting: Software, Hardware" → ["Software","Hardware"]
+    - For categorized skills (e.g., "Programming Languages: Python, Java"), extract only the individual skills (e.g., "Python", "Java").
     - Deduplicate case-insensitively, keeping first appearance's capitalization.
     - Preserve original wording and qualifiers (e.g., "Photoshop (Basic Layout)").
     - Maintain order of appearance.
