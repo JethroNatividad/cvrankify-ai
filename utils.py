@@ -19,6 +19,3 @@ def extract_pdf_text(pdf_path: str) -> str:
     text = extract_text(pdf_path)
     # clean up text a bit
     return text
-
-
-print(extract_pdf_text("resumes/hai.pdf"))
