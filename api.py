@@ -67,7 +67,7 @@ def update_parsed_data(applicant_id: int, parsed_data: dict):
 
         # Calculate total years of experience
         total_years = sum((end - start + 1) for start, end in merged)
-        data["parsedYearsOfExperience"] = total_years
+        data["parsedYearsOfExperience"] = total_years - 1
     else:
         data["parsedYearsOfExperience"] = 0
 
