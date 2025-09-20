@@ -1,11 +1,42 @@
 from bullmq import Worker
 import asyncio
 import signal
+from minio import Minio
+from dotenv import load_dotenv
+from ollama import Client
+
+import os
+
+from extract2 import extract_text_word_level_columns
+
+# Load environment variables from .env file
+load_dotenv()
+
+minio_client = Minio(
+    os.getenv("MINIO_ENDPOINT") + ":" + os.getenv("MINIO_PORT"),
+    access_key=os.getenv("MINIO_ACCESS_KEY"),
+    secret_key=os.getenv("MINIO_SECRET_KEY"),
+    secure=False,  # Use True for HTTPS, False for HTTP
+)
+
+ollama_client = Client()
 
 
 async def process(job, job_token):
     # job.data will include the data added to the queue
     print(f"Processing job {job.id} with data: {job.data}")
+    # get applicantId and resumePath from job.data
+    applicant_id = job.data.get("applicantId")
+    resume_path = job.data.get("resumePath")
+
+    try:
+        response = minio_client.get_object(os.getenv("MINIO_BUCKET_NAME"), resume_path)
+        data = response.read()
+        resume_text = extract_text_word_level_columns(data)
+    finally:
+        response.close()
+        response.release_conn()
+
     return {"result": "Job completed successfully"}
 
 

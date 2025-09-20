@@ -351,10 +351,3 @@ def extract_text_word_level_columns(path, debug=False):
                 text += line_text + "\n"
 
     return text.strip()
-
-
-# Use the word-level column-aware extraction
-text = extract_text_word_level_columns("resumes/angelo.pdf")
-
-
-print(text)
