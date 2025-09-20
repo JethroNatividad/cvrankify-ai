@@ -25,9 +25,16 @@ for pdf in pdf_resumes:
 output_dir = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 os.makedirs(os.path.join("evaluation", output_dir), exist_ok=True)
 
-models = ["qwen3:8b"]
+models = [
+    (
+        "edu-timezone-extractor:latest",
+        "experience-extractor:latest",
+        "skills-extractor:latest",
+        "mixed-model-1",
+    )
+]
 # models = ["qwen3:8b", "deepseek-r1:8b", "llama3.1:8b", "gemma3:4b"]
-runs_per_model = 5
+runs_per_model = 1
 
 for pdf_file, expected_output_path in evaluation_dataset.items():
     with open(os.path.join("resumes", pdf_file), "rb") as resume_pdf:
@@ -35,13 +42,14 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
         print(f"Evaluating {pdf_file}...")
 
         for model in models:
-            print(f"  Using model {model}...")
+            (model_edu, model_exp, model_skill, dir_label) = model
             runs = []
             for run in range(runs_per_model):
                 predicted = {}
-                print(f"    Run {run + 1}/{runs_per_model}...")
+                print(f"  Run {run + 1}/{runs_per_model}...")
+                print(f"    Using model {model_edu} to extract edu-timezone..")
                 edu_timezone_response = client.chat(
-                    model=model,
+                    model=model_edu,
                     messages=[
                         {
                             "role": "user",
@@ -50,9 +58,9 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                     ],
                     think=False,
                 )
-
+                print(f"    Using model {model_skill} to extract skills..")
                 skill_response = client.chat(
-                    model=model,
+                    model=model_skill,
                     messages=[
                         {
                             "role": "user",
@@ -62,8 +70,9 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                     think=False,
                 )
 
+                print(f"    Using model {model_exp} to extract experience..")
                 experience_response = client.chat(
-                    model=model,
+                    model=model_exp,
                     messages=[
                         {
                             "role": "user",
@@ -202,11 +211,16 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
             }
 
             # make dir of model if not exists
-            os.makedirs(os.path.join("evaluation", output_dir, model), exist_ok=True)
+            os.makedirs(
+                os.path.join("evaluation", output_dir, dir_label), exist_ok=True
+            )
             # save output to json file
             with open(
                 os.path.join(
-                    "evaluation", output_dir, model, pdf_file.replace(".pdf", ".json")
+                    "evaluation",
+                    output_dir,
+                    dir_label,
+                    pdf_file.replace(".pdf", ".json"),
                 ),
                 "w",
             ) as f:
