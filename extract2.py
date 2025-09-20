@@ -351,3 +351,8 @@ def extract_text_word_level_columns(path, debug=False):
                 text += line_text + "\n"
 
     return text.strip()
+
+
+# # test on resumes/in.pdf
+# pdf_text = extract_text_word_level_columns("resumes/in.pdf", debug=True)
+# print(pdf_text)

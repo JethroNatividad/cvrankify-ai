@@ -59,3 +59,11 @@ Use `Ctrl+C` to gracefully shut down the worker.
 - **Redis Connection**: Modify the connection string in `main.py` if your Redis server is not on localhost:6379
 - **Queue Name**: The worker listens to the `cvrankify-jobs` queue by default
 - **Job Processing**: Customize the `process` function in `main.py` to implement your CV analysis logic
+
+## Fine-tuning Models
+In finetuned_models/, you can find the finetuned Modelfiles
+
+## To create the finetuned models, run:
+ollama create edu-timezone-extractor -f finetuned_models/edu_timezone_extractor/Modelfile
+ollama create experience-extractor -f finetuned_models/experience_extractor/Modelfile
+ollama create skills-extractor -f finetuned_models/skills_extractor/Modelfile
