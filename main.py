@@ -3,9 +3,9 @@ import asyncio
 import signal
 from minio import Minio
 from dotenv import load_dotenv
-from ollama import Client
-
+from ai import extract_resume_data
 import os
+from api import set_status, update_parsed_data
 
 from extract2 import extract_text_word_level_columns
 
@@ -19,10 +19,8 @@ minio_client = Minio(
     secure=False,  # Use True for HTTPS, False for HTTP
 )
 
-ollama_client = Client()
 
-
-async def process(job, job_token):
+def handle_job(job):
     # job.data will include the data added to the queue
     print(f"Processing job {job.id} with data: {job.data}")
     # get applicantId and resumePath from job.data
@@ -33,11 +31,23 @@ async def process(job, job_token):
         response = minio_client.get_object(os.getenv("MINIO_BUCKET_NAME"), resume_path)
         data = response.read()
         resume_text = extract_text_word_level_columns(data)
+        resume_data = extract_resume_data(resume_text)
+        status_code, resp_json = set_status(applicant_id, "parsing")
+        print(f"Set status to parsing: {status_code}, {resp_json}")
+        status_code, resp_json = update_parsed_data(applicant_id, resume_data)
+        print(f"Updated parsed data: {status_code}, {resp_json}")
+        status_code, resp_json = set_status(applicant_id, "processing")
+        print(f"Set status to processing: {status_code}, {resp_json}")
+
     finally:
         response.close()
         response.release_conn()
 
-    return {"result": "Job completed successfully"}
+
+async def process(job, job_token):
+
+    # return type Future based on Worker
+    return handle_job(job)
 
 
 async def main():
