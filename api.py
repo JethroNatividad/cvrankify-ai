@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 import requests
 import json
+import datetime
 
 load_dotenv()
 
@@ -20,6 +21,76 @@ def set_status(applicant_id: int, status: str):
         "json": {
             "applicantId": applicant_id,
             "statusAI": status,
+        }
+    }
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()
+
+
+def update_parsed_data(applicant_id: int, parsed_data: dict):
+    # {'highestEducationDegree': 'Bachelor', 'educationField': 'Computer Science', 'timezone': 'GMT+8', 'skills': ['C++ Programming Language', 'Visual Basic 6.0', 'PHP Scripting Language', 'HTML/CSS', 'Mysql Database', 'Joomla', 'Adobe Photoshop (any version)', 'Adobe Illustrator', 'Adobe Dreamweaver', 'Adobe Flash', 'Adobe After Effects'], 'experiencePeriods': [{'startYear': '2011', 'endYear': 'Present'}]}
+    data = {}
+    data["parsedHighestEducationDegree"] = parsed_data.get("highestEducationDegree")
+    data["parsedEducationField"] = parsed_data.get("educationField")
+    data["parsedTimezone"] = parsed_data.get("timezone")
+    if "skills" in parsed_data:
+        data["parsedSkills"] = ", ".join(parsed_data["skills"])
+    else:
+        data["parsedSkills"] = ""
+
+    # For experience periods, calculate total years of experience, present is current year
+    # experience periods is a list of dicts with startYear and endYear, it is not guaranteed to be sorted
+    if "experiencePeriods" in parsed_data:
+        current_year = datetime.datetime.now().year
+
+        # Normalize periods (replace "Present" with current year)
+        normalized = []
+        for period in parsed_data["experiencePeriods"]:
+            start_year = int(period["startYear"])
+            end_year = (
+                current_year
+                if period["endYear"].lower() == "present"
+                else int(period["endYear"])
+            )
+            normalized.append((start_year, end_year))
+
+        # Sort by start year
+        normalized.sort(key=lambda x: x[0])
+
+        # Merge overlapping intervals
+        merged = []
+        for start, end in normalized:
+            if not merged or merged[-1][1] < start - 1:
+                merged.append([start, end])
+            else:
+                merged[-1][1] = max(merged[-1][1], end)
+
+        # Calculate total years of experience
+        total_years = sum((end - start + 1) for start, end in merged)
+        data["parsedYearsOfExperience"] = total_years
+    else:
+        data["parsedYearsOfExperience"] = 0
+
+    API_URL = "http://localhost:3000/api/trpc/applicant.updateParsedDataAI"
+    data = {
+        "json": {
+            "applicantId": applicant_id,
+            "parsedHighestEducationDegree": data["parsedHighestEducationDegree"],
+            "parsedEducationField": data["parsedEducationField"],
+            "parsedTimezone": data["parsedTimezone"],
+            "parsedSkills": data["parsedSkills"],
+            "parsedYearsOfExperience": data["parsedYearsOfExperience"],
+        }
+    }
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()
+
+
+def re_queue_resume(applicant_id: int):
+    API_URL = "http://localhost:3000/api/trpc/applicant.reQueueResumeProcessing"
+    data = {
+        "json": {
+            "applicantId": applicant_id,
         }
     }
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
