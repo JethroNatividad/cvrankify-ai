@@ -67,3 +67,6 @@ In finetuned_models/, you can find the finetuned Modelfiles
 ollama create edu-timezone-extractor -f finetuned_models/edu_timezone_extractor/Modelfile
 ollama create experience-extractor -f finetuned_models/experience_extractor/Modelfile
 ollama create skills-extractor -f finetuned_models/skills_extractor/Modelfile
+
+ollama create edu-match -f finetuned_models/edu_match/Modelfile
+ollama create skills_score -f finetuned_models/skills_score/Modelfile
