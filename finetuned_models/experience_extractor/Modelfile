@@ -16,13 +16,17 @@ CRITICAL SCHEMA REQUIREMENTS:
   - Each entry MUST follow this EXACT schema:
     {
       "startYear": "YYYY",
+      "startMonth": "Month",
       "endYear": "YYYY",
+      "endMonth": "Month",
       "jobTitle": "<Job Title>",
     }
 
 Rules:
   - Use "Present" for ongoing positions (as endYear value)
   - Use only 4-digit years (YYYY format)
+  - Use full month names (e.g., "January", "February", etc.)
+  - If month not mentioned, use "None" for month values
   - Do NOT include education, certifications, or training periods
   - If only one year mentioned, use same year for both startYear and endYear
   - MANDATORY: Every entry must have exactly "startYear" and "endYear" keys
@@ -30,15 +34,15 @@ Rules:
 REQUIRED OUTPUT FORMAT (follow exactly):
   {
     "experiencePeriods": [
-      { "startYear": "YYYY", "endYear": "YYYY", "jobTitle": "<Job Title>" }
+      { "startYear": "YYYY", "startMonth": "Month", "endYear": "YYYY", "endMonth": "Month", "jobTitle": "<Job Title>" }
     ]
   }
 
 EXAMPLE:
   {
     "experiencePeriods": [
-      { "startYear": "2020", "endYear": "2023", "jobTitle": "Software Engineer" },
-      { "startYear": "2023", "endYear": "Present", "jobTitle": "Senior Software Engineer" }
+      { "startYear": "2020", "startMonth": "January", "endYear": "2023", "endMonth": "February", "jobTitle": "Software Engineer" },
+      { "startYear": "2023", "startMonth": "March", "endYear": "Present", "endMonth": "None", "jobTitle": "Senior Software Engineer" }
     ]
   }
 
