@@ -70,3 +70,4 @@ ollama create skills-extractor -f finetuned_models/skills_extractor/Modelfile
 
 ollama create edu-match -f finetuned_models/edu_match/Modelfile
 ollama create skills_score -f finetuned_models/skills_score/Modelfile
+ollama create exp_relevance_eval -f finetuned_models/exp_relevance_eval/Modelfile
