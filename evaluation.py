@@ -53,7 +53,7 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                     messages=[
                         {
                             "role": "user",
-                            "content": get_edu_timezone_prompt(pdf_text),
+                            "content": pdf_text,
                         },
                     ],
                     think=False,
@@ -64,7 +64,7 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                     messages=[
                         {
                             "role": "user",
-                            "content": get_skill_prompt(pdf_text),
+                            "content": pdf_text,
                         },
                     ],
                     think=False,
@@ -76,7 +76,7 @@ for pdf_file, expected_output_path in evaluation_dataset.items():
                     messages=[
                         {
                             "role": "user",
-                            "content": get_experience_prompt(pdf_text),
+                            "content": pdf_text,
                         },
                     ],
                     think=False,
