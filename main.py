@@ -20,7 +20,7 @@ minio_client = Minio(
 )
 
 
-def handle_job(job):
+def handle_extraction(job):
     # job.data will include the data added to the queue
     print(f"Processing job {job.id} with data: {job.data}")
     # get applicantId and resumePath from job.data
@@ -44,10 +44,10 @@ def handle_job(job):
         response.release_conn()
 
 
-async def process(job, job_token):
+async def process_extraction(job, job_token):
 
     # return type Future based on Worker
-    return handle_job(job)
+    return handle_extraction(job)
 
 
 async def main():
@@ -66,7 +66,7 @@ async def main():
     # Feel free to remove the connection parameter, if your redis runs on localhost
     worker = Worker(
         "cvrankify-jobs",
-        process,
+        process_extraction,
         {"connection": "redis://localhost:6379"},
     )
 
