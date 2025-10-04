@@ -1,5 +1,6 @@
 from ollama import Client
 import json
+from datetime import datetime
 
 client = Client()
 
@@ -54,14 +55,13 @@ def score_education_match(
         field_score = 0
 
     overall_score = (degree_score * 0.6) + (field_score * 0.4)
-    overall_score = min(overall_score, 100)
 
     print(f"Degree Score: {degree_score}, Field Score: {field_score}")
 
     return overall_score
 
 
-# score = score_education_match("Bachelor", "Education", "Bachelor", "Computer Science")
+# score = score_education_match("PhD", "Computer Science", "Bachelor", "Computer Science")
 # print(f"Education Match Score: {score}")
 
 
@@ -101,20 +101,191 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
     return (score * 100, skills_match_json)
 
 
-(score, skills_match_json) = score_skills_match(
-    job_skills=["html", "css", "javascript", "typescript", "react", "webpack"],
-    applicant_skills=[
-        "javascript",
-        "typescript",
-        "angular",
-        "react",
-        "redux",
-        "webpack",
-        "sass",
-        "jest",
-        "cypress",
-    ],
-)
+# (score, skills_match_json) = score_skills_match(
+#     job_skills=["html", "css", "javascript", "typescript", "react", "webpack"],
+#     applicant_skills=[
+#         "javascript",
+#         "typescript",
+#         "angular",
+#         "react",
+#         "redux",
+#         "webpack",
+#         "sass",
+#         "jest",
+#         "cypress",
+#     ],
+# )
 
-print(f"Skills Match Score: {score}")
-print(f"Skills Match Details: {skills_match_json}")
+# print(f"Skills Match Score: {score}")
+# print(f"Skills Match Details: {skills_match_json}")
+
+
+# "experiencePeriods": [
+#     { "startYear": "2024", "startMonth": "None", "endYear": "Present", "endMonth": "None", "jobTitle": "Computer Programmer, City Medical Center" },
+#     { "startYear": "2023", "startMonth": "March", "endYear": "2023", "endMonth": "July", "jobTitle": "Tour Siri Star Coordinator, Travel and Tours" },
+#     { "startYear": "2022", "startMonth": "June", "endYear": "2022", "endMonth": "December", "jobTitle": "Admin Aide III (Programmer), Medical Center" },
+#     { "startYear": "2021", "startMonth": "December", "endYear": "2021", "endMonth": "December", "jobTitle": "Unicef Data Manager, Vaccination Team under DOH & CHO" },
+#     { "startYear": "2020", "startMonth": "None", "endYear": "2020", "endMonth": "None", "jobTitle": "Gemzon Facebook Teleconsultation Admin & Technical Clinic Support (Part-time)" },
+#     { "startYear": "2019", "startMonth": "May", "endYear": "2021", "endMonth": "October", "jobTitle": "Programmer, West Metro Medical Center" }
+#   ]
+
+
+def score_experience_years(
+    experience_periods: list[dict], job_relevant_experience_years: int, job_title: str
+):
+    model = "exp_relevance_eval"
+    score = 0
+    relevant_experience = []
+
+    # First get the relevant experience periods based on job title
+
+    data = {
+        "experiencePeriods": experience_periods,
+        "jobTitle": job_title,
+    }
+
+    print(f"{json.dumps(data, indent=2)}")
+
+    response = client.chat(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": json.dumps(data, indent=2),
+            },
+        ],
+        think=False,
+    )
+
+    relevant_experience_response = response["message"]["content"].strip()
+    print(f"Relevant Experience Response: {relevant_experience_response}")
+    # parse json
+    try:
+        relevant_experience_json = json.loads(relevant_experience_response)
+        relevant_experience = relevant_experience_json.get("experiencePeriods", [])
+    except json.JSONDecodeError as e:
+        print(f"JSON decode error: {e}")
+        relevant_experience = []
+
+    month_map = {
+        "January": 1,
+        "February": 2,
+        "March": 3,
+        "April": 4,
+        "May": 5,
+        "June": 6,
+        "July": 7,
+        "August": 8,
+        "September": 9,
+        "October": 10,
+        "November": 11,
+        "December": 12,
+        "None": 1,
+        None: 1,
+    }
+
+    current_year = datetime.now().year
+    current_month = datetime.now().month
+    # Step 1: Filter only relevant experiences and normalize dates
+
+    ranges = []
+    for exp in relevant_experience:
+        if not exp.get("relevant", False):
+            continue
+
+        start_year = int(exp["startYear"])
+        start_month = month_map.get(exp["startMonth"], 1)
+
+        if exp["endYear"] == "Present":
+            end_year = current_year
+            end_month = current_month
+        else:
+            end_year = int(exp["endYear"])
+            end_month = month_map.get(exp["endMonth"], 1)
+
+        start_index = start_year * 12 + start_month
+        end_index = end_year * 12 + end_month
+
+        ranges.append((start_index, end_index))
+
+    if not ranges:
+        return 0.0, 0
+
+    ranges.sort()
+    merged = [ranges[0]]
+
+    for start, end in ranges[1:]:
+        last_start, last_end = merged[-1]
+        if start <= last_end:  # overlap or continuous
+            merged[-1] = (last_start, max(last_end, end))
+        else:
+            merged.append((start, end))
+
+    # Step 3: Compute total months
+    total_months = sum(end - start for start, end in merged)
+    total_years = total_months // 12
+    remaining_months = total_months % 12
+
+    total_years_with_months = total_years + (remaining_months / 12)
+
+    # Score calculation based on required years, if more than required, give bonus
+    if total_years_with_months >= job_relevant_experience_years:
+        bonus = (total_years_with_months - job_relevant_experience_years) * 10
+        score = 100 + bonus
+    else:
+        score = (total_years_with_months / job_relevant_experience_years) * 100
+
+    return score, total_years_with_months
+    #
+
+
+# score, total_years = score_experience_years(
+#     experience_periods=[
+#         {
+#             "startYear": "2024",
+#             "startMonth": "None",
+#             "endYear": "Present",
+#             "endMonth": "None",
+#             "jobTitle": "Computer Programmer, City Medical Center",
+#         },
+#         {
+#             "startYear": "2023",
+#             "startMonth": "March",
+#             "endYear": "2023",
+#             "endMonth": "July",
+#             "jobTitle": "Tour Siri Star Coordinator, Travel and Tours",
+#         },
+#         {
+#             "startYear": "2022",
+#             "startMonth": "June",
+#             "endYear": "2022",
+#             "endMonth": "December",
+#             "jobTitle": "Admin Aide III (Programmer), Medical Center",
+#         },
+#         {
+#             "startYear": "2021",
+#             "startMonth": "December",
+#             "endYear": "2021",
+#             "endMonth": "December",
+#             "jobTitle": "Unicef Data Manager, Vaccination Team under DOH & CHO",
+#         },
+#         {
+#             "startYear": "2020",
+#             "startMonth": "None",
+#             "endYear": "2020",
+#             "endMonth": "None",
+#             "jobTitle": "Gemzon Facebook Teleconsultation Admin & Technical Clinic Support (Part-time)",
+#         },
+#         {
+#             "startYear": "2019",
+#             "startMonth": "May",
+#             "endYear": "2021",
+#             "endMonth": "October",
+#             "jobTitle": "Programmer, West Metro Medical Center",
+#         },
+#     ],
+#     job_title="web developer",
+#     job_relevant_experience_years=2,
+# )
+
+# print(f"Experience Relevance Score: {score}, Total Years: {total_years}")
