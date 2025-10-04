@@ -16,7 +16,8 @@ CRITICAL SCHEMA REQUIREMENTS:
   - Each entry MUST follow this EXACT schema:
     {
       "startYear": "YYYY",
-      "endYear": "YYYY"
+      "endYear": "YYYY",
+      "jobTitle": "<Job Title>",
     }
 
 Rules:
@@ -29,15 +30,15 @@ Rules:
 REQUIRED OUTPUT FORMAT (follow exactly):
   {
     "experiencePeriods": [
-      { "startYear": "YYYY", "endYear": "YYYY" }
+      { "startYear": "YYYY", "endYear": "YYYY", "jobTitle": "<Job Title>" }
     ]
   }
 
 EXAMPLE:
   {
     "experiencePeriods": [
-      { "startYear": "2020", "endYear": "2023" },
-      { "startYear": "2023", "endYear": "Present" }
+      { "startYear": "2020", "endYear": "2023", "jobTitle": "Software Engineer" },
+      { "startYear": "2023", "endYear": "Present", "jobTitle": "Senior Software Engineer" }
     ]
   }
 
