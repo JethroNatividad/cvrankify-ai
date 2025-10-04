@@ -289,3 +289,16 @@ def score_experience_years(
 # )
 
 # print(f"Experience Relevance Score: {score}, Total Years: {total_years}")
+
+
+def tz_score(a_hours: float, b_hours: float) -> float:
+    # convert to 0..24 circle
+    a = (a_hours + 24) % 24
+    b = (b_hours + 24) % 24
+    d = abs(a - b)
+    diff = min(d, 24 - d)  # minimal circular distance, in hours
+    score = (1 - diff / 12) * 100  # 100 = same zone, 0 = 12h apart
+    return max(0.0, min(100.0, score)), diff
+
+
+# print(tz_score(+8, -6))
