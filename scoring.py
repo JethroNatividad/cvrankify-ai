@@ -61,8 +61,8 @@ def score_education_match(
     return overall_score
 
 
-score = score_education_match("Bachelor", "Mathematics", "Bachelor", "Computer Science")
-print(f"Education Match Score: {score}")
+# score = score_education_match("Bachelor", "Mathematics", "Bachelor", "Computer Science")
+# print(f"Education Match Score: {score}")
 
 
 def score_skills_match(job_skills: list[str], applicant_skills: list[str]):

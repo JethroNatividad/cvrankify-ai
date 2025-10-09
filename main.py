@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 from ai import extract_resume_data
 import os
 from api import set_status, update_parsed_data
-
+import json
+from scoring import score_education_match
 from extract2 import extract_text_word_level_columns
 
 # Load environment variables from .env file
@@ -45,8 +46,33 @@ def handle_extraction(job):
         response.release_conn()
 
 
-def score_resume(job):
-    print(f"Scoring job {job.id} with data: {job.data}")
+def score_applicant(job):
+    print(f"Scoring applicant {job.id}")
+    applicant_id = job.data.get("applicantId")
+    applicant_data = job.data.get("applicantData")
+    job_data = job.data.get("jobData")
+
+    # json parse data
+    try:
+        applicant_data = json.loads(applicant_data)
+        # {'id': 19, 'createdAt': '2025-10-09T16:18:05.826Z', 'updatedAt': '2025-10-09T19:19:54.241Z', 'name': 'BOT', 'email': 'bot@email.com', 'resume': 'resumes/2025/bot-1760026685155.pdf', 'statusAI': 'processing', 'parsedHighestEducationDegree': 'Bachelor', 'parsedEducationField': 'Computer Science', 'parsedTimezone': 'GMT+8', 'parsedSkills': 'C++ Programming Language, Visual Basic 6.0, PHP Scripting Language, HTML/CSS, Mysql Database, Joomla, Adobe Photoshop (any version), Adobe Illustrator, Adobe Dreamweaver, Adobe Flash, Adobe After Effects', 'parsedYearsOfExperience': 14, 'skillsScoreAI': '0', 'experienceScoreAI': '0', 'educationScoreAI': '0', 'timezoneScoreAI': '0', 'overallScoreAI': '0', 'skillsFeedbackAI': None, 'experienceFeedbackAI': None, 'educationFeedbackAI': None, 'timezoneFeedbackAI': None, 'overallFeedbackAI': None, 'currentStage': 0, 'interviewStatus': 'pending', 'interviewNotes': None, 'jobId': 5, 'experiences': [{'id': 1, 'createdAt': '2025-10-09T19:19:54.051Z', 'updatedAt': '2025-10-09T19:19:54.051Z', 'jobTitle': 'Graphic Artist', 'startYear': '2011', 'endYear': 'Present', 'startMonth': 'April', 'endMonth': 'None', 'isRelevant': False, 'applicantId': 19}]}
+        job_data = json.loads(job_data)
+        # {'id': 5, 'createdAt': '2025-08-20T18:30:19.479Z', 'updatedAt': '2025-08-20T18:30:19.479Z', 'title': 'Data Scientist', 'description': "Join our data team as a Data Scientist to extract insights from large datasets and drive data-informed decision making across the organization. You will develop machine learning models, conduct statistical analysis, create predictive algorithms, and work with stakeholders to translate business questions into analytical solutions.\n\nThe role involves working with various data sources, building dashboards and reports, and presenting findings to both technical and non-technical audiences. We're looking for someone with strong analytical skills and the ability to work with complex datasets to solve challenging business problems.\n\nKey Responsibilities:\n- Develop and deploy machine learning models and algorithms\n- Conduct statistical analysis and data mining\n- Create data visualizations and dashboards\n- Collaborate with business stakeholders to identify opportunities\n- Design and implement A/B tests and experiments\n- Build data pipelines and ETL processes\n- Present findings and recommendations to leadership\n- Stay current with latest developments in data science and ML\n\nThis is an excellent opportunity to work with cutting-edge data science technologies and make a significant impact on business strategy and operations.", 'skills': 'Python, R, SQL, Machine Learning, TensorFlow, Pandas, NumPy, Tableau, Power BI, Statistics, A/B Testing, Data Visualization', 'yearsOfExperience': 3, 'educationDegree': 'Master', 'educationField': 'Data Science', 'timezone': 'GMT+1', 'skillsWeight': '0.5', 'experienceWeight': '0.2', 'educationWeight': '0.2', 'timezoneWeight': '0.1', 'interviewing': 0, 'interviewsNeeded': 2, 'hires': 0, 'hiresNeeded': 1, 'isOpen': True, 'createdById': 'cmekb012x0001ln2w562lrr62'}
+        print(applicant_data)
+        print(job_data)
+        education_score = score_education_match(
+            applicant_education_field=applicant_data.get("parsedEducationField"),
+            applicant_highest_degree=applicant_data.get("parsedHighestEducationDegree"),
+            job_education_field=job_data.get("educationField"),
+            job_required_degree=job_data.get("educationDegree"),
+        )
+        print(f"Education Score: {education_score}")
+
+    except json.JSONDecodeError as e:
+        print(f"Error parsing JSON data for job {job.id}: {e}")
+        return None
+    except Exception as e:
+        print(f"Unexpected error processing job {job.id}: {e}")
     return None
 
 
@@ -56,8 +82,8 @@ async def process(job, job_token):
     print(job.name)
     if job.name == "process-resume":
         return handle_extraction(job)
-    if job.name == "score-resume":
-        return score_resume(job)
+    if job.name == "score-applicant":
+        return score_applicant(job)
 
     return None
 
