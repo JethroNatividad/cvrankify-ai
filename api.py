@@ -101,3 +101,14 @@ def re_queue_resume(applicant_id: int):
     }
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
     return response.status_code, response.json()
+
+
+def queue_score_resume(applicant_id: int):
+    API_URL = "http://localhost:3000/api/trpc/applicant.queueScoring"
+    data = {
+        "json": {
+            "applicantId": applicant_id,
+        }
+    }
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()
