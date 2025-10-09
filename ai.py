@@ -20,35 +20,34 @@ ollama_client = Client()
 
 
 def extract_resume_data(pdf_text: str) -> dict:
-    model = "qwen3:8b"
     edu_timezone_response = ollama_client.chat(
-        model=model,
+        model="edu-timezone-extractor:latest",
         messages=[
             {
                 "role": "user",
-                "content": get_edu_timezone_prompt(pdf_text),
+                "content": pdf_text,
             },
         ],
         think=False,
     )
 
     skill_response = ollama_client.chat(
-        model=model,
+        model="skills-extractor:latest",
         messages=[
             {
                 "role": "user",
-                "content": get_skill_prompt(pdf_text),
+                "content": pdf_text,
             },
         ],
         think=False,
     )
 
     experience_response = ollama_client.chat(
-        model=model,
+        model="experience-extractor:latest",
         messages=[
             {
                 "role": "user",
-                "content": get_experience_prompt(pdf_text),
+                "content": pdf_text,
             },
         ],
         think=False,
