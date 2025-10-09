@@ -1,0 +1,58 @@
+{
+  "resume": "angelo.pdf",
+  "model": [
+    "edu-timezone-extractor:latest",
+    "experience-extractor:latest",
+    "skills-extractor:latest",
+    "mixed-model-1"
+  ],
+  "runs": [
+    {
+      "predicted": {
+        "highestEducationDegree": "Bachelor",
+        "educationField": "Computer Science",
+        "timezone": "GMT+8",
+        "skills": [
+          "C++ Programming Language",
+          "Visual Basic 6.0",
+          "PHP Scripting Language",
+          "HTML/CSS",
+          "Mysql Database",
+          "Joomla",
+          "Adobe Photoshop (any version)",
+          "Adobe Illustrator",
+          "Adobe Dreamweaver",
+          "Adobe Flash",
+          "Adobe After Effects"
+        ],
+        "experiencePeriods": [
+          {
+            "startYear": "2011",
+            "startMonth": "April",
+            "endYear": "Present",
+            "endMonth": "None",
+            "jobTitle": "Graphic Artist"
+          }
+        ]
+      },
+      "metrics": {
+        "highestEducationDegree": 1.0,
+        "educationField": 1.0,
+        "timezone": 1.0,
+        "skills_precision": 1.0,
+        "skills_recall": 1.0,
+        "skills_f1": 1.0,
+        "experiencePeriods_accuracy": 0.0
+      }
+    }
+  ],
+  "average_metrics": {
+    "highestEducationDegree": 1.0,
+    "educationField": 1.0,
+    "timezone": 1.0,
+    "skills_precision": 1.0,
+    "skills_recall": 1.0,
+    "skills_f1": 1.0,
+    "experiencePeriods_accuracy": 0.0
+  }
+}
