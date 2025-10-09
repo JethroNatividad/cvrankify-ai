@@ -61,8 +61,8 @@ def score_education_match(
     return overall_score
 
 
-# score = score_education_match("PhD", "Computer Science", "Bachelor", "Computer Science")
-# print(f"Education Match Score: {score}")
+score = score_education_match("Bachelor", "Mathematics", "Bachelor", "Computer Science")
+print(f"Education Match Score: {score}")
 
 
 def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
@@ -301,4 +301,4 @@ def tz_score(a_hours: float, b_hours: float) -> float:
     return max(0.0, min(100.0, score)), diff
 
 
-# print(tz_score(+8, -6))
+# print(tz_score(-12, +14))
