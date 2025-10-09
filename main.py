@@ -38,16 +38,28 @@ def handle_extraction(job):
         print(f"Updated parsed data: {status_code}, {resp_json}")
         status_code, resp_json = set_status(applicant_id, "processing")
         print(f"Set status to processing: {status_code}, {resp_json}")
-
+    except Exception as e:
+        print(f"Error processing job {job.id}: {e}")
     finally:
         response.close()
         response.release_conn()
 
 
-async def process_extraction(job, job_token):
+def score_resume(job):
+    print(f"Scoring job {job.id} with data: {job.data}")
+    return None
+
+
+async def process(job, job_token):
 
     # return type Future based on Worker
-    return handle_extraction(job)
+    print(job.name)
+    if job.name == "process-resume":
+        return handle_extraction(job)
+    if job.name == "score-resume":
+        return score_resume(job)
+
+    return None
 
 
 async def main():
@@ -66,7 +78,7 @@ async def main():
     # Feel free to remove the connection parameter, if your redis runs on localhost
     worker = Worker(
         "cvrankify-jobs",
-        process_extraction,
+        process,
         {"connection": "redis://localhost:6379"},
     )
 
