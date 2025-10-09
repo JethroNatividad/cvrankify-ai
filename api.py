@@ -80,8 +80,14 @@ def update_parsed_data(applicant_id: int, parsed_data: dict):
             "parsedTimezone": data["parsedTimezone"],
             "parsedSkills": data["parsedSkills"],
             "parsedYearsOfExperience": data["parsedYearsOfExperience"],
+            "parsedExperiences": (
+                parsed_data["experiencePeriods"]
+                if "experiencePeriods" in parsed_data
+                else []
+            ),
         }
     }
+    print(data)
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
     return response.status_code, response.json()
 
