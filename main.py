@@ -5,9 +5,9 @@ from minio import Minio
 from dotenv import load_dotenv
 from ai import extract_resume_data
 import os
-from api import set_status, update_parsed_data
+from api import set_status, update_parsed_data, update_matched_skills
 import json
-from scoring import score_education_match
+from scoring import score_education_match, score_skills_match
 from extract2 import extract_text_word_level_columns
 
 # Load environment variables from .env file
@@ -60,13 +60,23 @@ def score_applicant(job):
         # {'id': 5, 'createdAt': '2025-08-20T18:30:19.479Z', 'updatedAt': '2025-08-20T18:30:19.479Z', 'title': 'Data Scientist', 'description': "Join our data team as a Data Scientist to extract insights from large datasets and drive data-informed decision making across the organization. You will develop machine learning models, conduct statistical analysis, create predictive algorithms, and work with stakeholders to translate business questions into analytical solutions.\n\nThe role involves working with various data sources, building dashboards and reports, and presenting findings to both technical and non-technical audiences. We're looking for someone with strong analytical skills and the ability to work with complex datasets to solve challenging business problems.\n\nKey Responsibilities:\n- Develop and deploy machine learning models and algorithms\n- Conduct statistical analysis and data mining\n- Create data visualizations and dashboards\n- Collaborate with business stakeholders to identify opportunities\n- Design and implement A/B tests and experiments\n- Build data pipelines and ETL processes\n- Present findings and recommendations to leadership\n- Stay current with latest developments in data science and ML\n\nThis is an excellent opportunity to work with cutting-edge data science technologies and make a significant impact on business strategy and operations.", 'skills': 'Python, R, SQL, Machine Learning, TensorFlow, Pandas, NumPy, Tableau, Power BI, Statistics, A/B Testing, Data Visualization', 'yearsOfExperience': 3, 'educationDegree': 'Master', 'educationField': 'Data Science', 'timezone': 'GMT+1', 'skillsWeight': '0.5', 'experienceWeight': '0.2', 'educationWeight': '0.2', 'timezoneWeight': '0.1', 'interviewing': 0, 'interviewsNeeded': 2, 'hires': 0, 'hiresNeeded': 1, 'isOpen': True, 'createdById': 'cmekb012x0001ln2w562lrr62'}
         print(applicant_data)
         print(job_data)
-        education_score = score_education_match(
-            applicant_education_field=applicant_data.get("parsedEducationField"),
-            applicant_highest_degree=applicant_data.get("parsedHighestEducationDegree"),
-            job_education_field=job_data.get("educationField"),
-            job_required_degree=job_data.get("educationDegree"),
+        # education_score = score_education_match(
+        #     applicant_education_field=applicant_data.get("parsedEducationField"),
+        #     applicant_highest_degree=applicant_data.get("parsedHighestEducationDegree"),
+        #     job_education_field=job_data.get("educationField"),
+        #     job_required_degree=job_data.get("educationDegree"),
+        # )
+        # print(f"Education Score: {education_score}")
+        job_skills = job_data.get("skills").split(", ")
+        applicant_skills = applicant_data.get("parsedSkills").split(", ")
+        (skills_score, skills_match_json) = score_skills_match(
+            job_skills=job_skills, applicant_skills=applicant_skills
         )
-        print(f"Education Score: {education_score}")
+        print(f"Skills Score: {skills_score}")
+        print(f"Skills Match JSON: {skills_match_json}")
+        skills_match = skills_match_json.get("job_skills", [])
+        status_code, resp_json = update_matched_skills(applicant_id, skills_match)
+        print(f"Updated matched skills: {status_code}, {resp_json}")
 
     except json.JSONDecodeError as e:
         print(f"Error parsing JSON data for job {job.id}: {e}")

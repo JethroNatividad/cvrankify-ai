@@ -112,3 +112,39 @@ def queue_score_resume(applicant_id: int):
     }
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
     return response.status_code, response.json()
+
+
+def update_matched_skills(applicant_id: int, matched_skills: list[dict]):
+    """
+    Update matched skills for an applicant.
+
+    Args:
+        applicant_id: The ID of the applicant
+        matched_skills: List of matched skills, each containing:
+            - jobSkill: str (max 100 chars)
+            - matchType: str ("explicit", "implied", or "missing")
+            - applicantSkill: str (max 100 chars)
+            - score: float (0-100)
+            - reason: str (optional)
+
+    Example:
+        matched_skills = [
+            {
+                "jobSkill": "Python",
+                "matchType": "explicit",
+                "applicantSkill": "Python Programming",
+                "score": 95.0,
+                "reason": "Direct match found in resume"
+            }
+        ]
+    """
+    API_URL = "http://localhost:3000/api/trpc/applicant.updateApplicantMatchedSkillsAI"
+    data = {
+        "json": {
+            "applicantId": applicant_id,
+            "matchedSkills": matched_skills,
+        }
+    }
+    print("DATA TO SEND:", data)
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()
