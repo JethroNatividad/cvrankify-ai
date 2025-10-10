@@ -225,7 +225,7 @@ def score_experience_years(
         ranges.append((start_index, end_index))
 
     if not ranges:
-        return 0.0, 0
+        return (relevant_experience, 0.0, 0.0)
 
     ranges.sort()
     merged = [ranges[0]]
@@ -238,7 +238,7 @@ def score_experience_years(
             merged.append((start, end))
 
     # Step 3: Compute total months
-    total_months = sum(end - start for start, end in merged)
+    total_months = min(sum(end - start for start, end in merged), 0)
     total_years = total_months // 12
     remaining_months = total_months % 12
 
@@ -251,7 +251,7 @@ def score_experience_years(
     else:
         score = (total_years_with_months / job_relevant_experience_years) * 100
 
-    return score, total_years_with_months
+    return (relevant_experience, score, total_years_with_months)
     #
 
 

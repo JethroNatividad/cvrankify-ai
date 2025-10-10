@@ -148,3 +148,39 @@ def update_matched_skills(applicant_id: int, matched_skills: list[dict]):
     print("DATA TO SEND:", data)
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
     return response.status_code, response.json()
+
+
+def update_applicant_experience_relevance(applicant_id: int, experiences: list[dict]):
+    """
+    Update experience relevance for an applicant.
+
+    Args:
+        applicant_id: The ID of the applicant
+        experiences: List of experiences, each containing:
+            - id: int (experience ID)
+            - relevant: bool
+
+    Example:
+        experiences = [
+            {
+                "id": 123,
+                "relevant": True
+            },
+            {
+                "id": 124,
+                "relevant": False
+            }
+        ]
+    """
+    API_URL = (
+        "http://localhost:3000/api/trpc/applicant.updateApplicantExperienceRelevanceAI"
+    )
+    data = {
+        "json": {
+            "applicantId": applicant_id,
+            "experiences": experiences,
+        }
+    }
+    print("DATA TO SEND:", data)
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()

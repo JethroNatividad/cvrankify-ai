@@ -5,9 +5,14 @@ from minio import Minio
 from dotenv import load_dotenv
 from ai import extract_resume_data
 import os
-from api import set_status, update_parsed_data, update_matched_skills
+from api import (
+    set_status,
+    update_parsed_data,
+    update_matched_skills,
+    update_applicant_experience_relevance,
+)
 import json
-from scoring import score_education_match, score_skills_match
+from scoring import score_education_match, score_skills_match, score_experience_years
 from extract2 import extract_text_word_level_columns
 
 # Load environment variables from .env file
@@ -67,16 +72,37 @@ def score_applicant(job):
         #     job_required_degree=job_data.get("educationDegree"),
         # )
         # print(f"Education Score: {education_score}")
-        job_skills = job_data.get("skills").split(", ")
-        applicant_skills = applicant_data.get("parsedSkills").split(", ")
-        (skills_score, skills_match_json) = score_skills_match(
-            job_skills=job_skills, applicant_skills=applicant_skills
+
+        # job_skills = job_data.get("skills").split(", ")
+        # applicant_skills = applicant_data.get("parsedSkills").split(", ")
+        # (skills_score, skills_match_json) = score_skills_match(
+        #     job_skills=job_skills, applicant_skills=applicant_skills
+        # )
+        # skills_match = skills_match_json.get("job_skills", [])
+        # status_code, resp_json = update_matched_skills(applicant_id, skills_match)
+        # print(f"Updated matched skills: {status_code}, {resp_json}")
+        # print(f"Skills Score: {skills_score}")
+
+        job_title = job_data.get("title")
+        applicant_experience_periods = applicant_data.get("experiences", [])
+        job_relevant_experience_years = job_data.get("yearsOfExperience", 0)
+
+        (relevant_experience, experience_score, total_years_with_months) = (
+            score_experience_years(
+                experience_periods=applicant_experience_periods,
+                job_relevant_experience_years=job_relevant_experience_years,
+                job_title=job_title,
+            )
         )
-        print(f"Skills Score: {skills_score}")
-        print(f"Skills Match JSON: {skills_match_json}")
-        skills_match = skills_match_json.get("job_skills", [])
-        status_code, resp_json = update_matched_skills(applicant_id, skills_match)
-        print(f"Updated matched skills: {status_code}, {resp_json}")
+
+        print(f"Relevant Experience: {relevant_experience}")
+        print(f"Experience Score: {experience_score}")
+        print(f"Total Years with Months: {total_years_with_months}")
+
+        status_code, resp_json = update_applicant_experience_relevance(
+            applicant_id, relevant_experience
+        )
+        print(f"Updated experience relevance: {status_code}, {resp_json}")
 
     except json.JSONDecodeError as e:
         print(f"Error parsing JSON data for job {job.id}: {e}")
