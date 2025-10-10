@@ -184,3 +184,48 @@ def update_applicant_experience_relevance(applicant_id: int, experiences: list[d
     print("DATA TO SEND:", data)
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
     return response.status_code, response.json()
+
+
+def update_applicant_scores(
+    applicant_id: int,
+    skills_score: float,
+    experience_score: float,
+    education_score: float,
+    timezone_score: float,
+    overall_score: float,
+):
+    """
+    Update AI scores for an applicant.
+
+    Args:
+        applicant_id: The ID of the applicant
+        skills_score: Skills score (0-100)
+        experience_score: Experience score (0-100)
+        education_score: Education score (0-100)
+        timezone_score: Timezone score (0-100)
+        overall_score: Overall score (0-100)
+
+    Example:
+        update_applicant_scores(
+            applicant_id=123,
+            skills_score=85.5,
+            experience_score=90.0,
+            education_score=75.0,
+            timezone_score=100.0,
+            overall_score=87.6
+        )
+    """
+    API_URL = "http://localhost:3000/api/trpc/applicant.updateApplicantScoresAI"
+    data = {
+        "json": {
+            "applicantId": applicant_id,
+            "skillsScoreAI": skills_score,
+            "experienceScoreAI": experience_score,
+            "educationScoreAI": education_score,
+            "timezoneScoreAI": timezone_score,
+            "overallScoreAI": overall_score,
+        }
+    }
+    print("DATA TO SEND:", data)
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()
