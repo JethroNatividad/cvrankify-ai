@@ -11,6 +11,7 @@ from api import (
     update_matched_skills,
     update_applicant_experience_relevance,
     update_applicant_scores,
+    queue_score_resume,
 )
 import json
 from scoring import (
@@ -50,6 +51,9 @@ def handle_extraction(job):
         print(f"Updated parsed data: {status_code}, {resp_json}")
         status_code, resp_json = set_status(applicant_id, "processing")
         print(f"Set status to processing: {status_code}, {resp_json}")
+        # SCORE RESUME
+        status_code, resp_json = queue_score_resume(applicant_id)
+        print(f"Queued score resume: {status_code}, {resp_json}")
     except Exception as e:
         print(f"Error processing job {job.id}: {e}")
     finally:
@@ -113,6 +117,10 @@ def score_applicant(job):
                 job_relevant_experience_years=job_relevant_experience_years,
                 job_title=job_title,
             )
+        )
+
+        print(
+            f"Total Years with Months: {total_years_with_months}, Experience Score: {experience_score}, Relevant Experience: {relevant_experience}"
         )
 
         experience_score = round(experience_score, 2)
