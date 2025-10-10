@@ -98,6 +98,22 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
         print(f"JSON decode error: {e}")
         score = 0
 
+    # Replace match_type with matchType, skill with jobSkill, from_cv with applicantSkill
+    skills_match_json = {
+        "job_skills": [
+            {
+                "jobSkill": entry["skill"],
+                "matchType": entry["match_type"],
+                "applicantSkill": (
+                    entry["from_cv"] if entry["from_cv"] is not None else ""
+                ),
+                "score": entry["score"],
+                "reason": entry.get("reason", ""),
+            }
+            for entry in skills_match_json["job_skills"]
+        ]
+    }
+
     return (score * 100, skills_match_json)
 
 
