@@ -40,36 +40,37 @@ def update_parsed_data(applicant_id: int, parsed_data: dict):
 
     # For experience periods, calculate total years of experience, present is current year
     # experience periods is a list of dicts with startYear and endYear, it is not guaranteed to be sorted
-    if "experiencePeriods" in parsed_data:
-        current_year = datetime.datetime.now().year
+    # if "experiencePeriods" in parsed_data:
+    #     current_year = datetime.datetime.now().year
 
-        # Normalize periods (replace "Present" with current year)
-        normalized = []
-        for period in parsed_data["experiencePeriods"]:
-            start_year = int(period["startYear"])
-            end_year = (
-                current_year
-                if period["endYear"].lower() == "present"
-                else int(period["endYear"])
-            )
-            normalized.append((start_year, end_year))
+    #     # Normalize periods (replace "Present" with current year)
+    #     normalized = []
+    #     for period in parsed_data["experiencePeriods"]:
+    #         start_year = int(period["startYear"])
+    #         end_year = (
+    #             current_year
+    #             if period["endYear"].lower() == "present"
+    #             else int(period["endYear"])
+    #         )
+    #         normalized.append((start_year, end_year))
 
-        # Sort by start year
-        normalized.sort(key=lambda x: x[0])
+    #     # Sort by start year
+    #     normalized.sort(key=lambda x: x[0])
 
-        # Merge overlapping intervals
-        merged = []
-        for start, end in normalized:
-            if not merged or merged[-1][1] < start - 1:
-                merged.append([start, end])
-            else:
-                merged[-1][1] = max(merged[-1][1], end)
+    #     # Merge overlapping intervals
+    #     merged = []
+    #     for start, end in normalized:
+    #         if not merged or merged[-1][1] < start - 1:
+    #             merged.append([start, end])
+    #         else:
+    #             merged[-1][1] = max(merged[-1][1], end)
 
-        # Calculate total years of experience
-        total_years = sum((end - start + 1) for start, end in merged)
-        data["parsedYearsOfExperience"] = total_years - 1
-    else:
-        data["parsedYearsOfExperience"] = 0
+    #     # Calculate total years of experience
+    #     total_years = sum((end - start + 1) for start, end in merged)
+    #     data["parsedYearsOfExperience"] = total_years - 1
+    # else:
+    #     data["parsedYearsOfExperience"] = 0
+    data["parsedYearsOfExperience"] = 0
 
     API_URL = "http://localhost:3000/api/trpc/applicant.updateParsedDataAI"
     data = {
@@ -193,6 +194,7 @@ def update_applicant_scores(
     education_score: float,
     timezone_score: float,
     overall_score: float,
+    parsedYearsOfExperience: float = 0.0,
 ):
     """
     Update AI scores for an applicant.
@@ -224,6 +226,7 @@ def update_applicant_scores(
             "educationScoreAI": education_score,
             "timezoneScoreAI": timezone_score,
             "overallScoreAI": overall_score,
+            "parsedYearsOfExperience": parsedYearsOfExperience,
         }
     }
     print("DATA TO SEND:", data)

@@ -203,7 +203,7 @@ def score_experience_years(
     current_year = datetime.now().year
     current_month = datetime.now().month
     # Step 1: Filter only relevant experiences and normalize dates
-
+    # [{'id': 2, 'createdAt': '2025-10-10T13:44:04.582Z', 'updatedAt': '2025-10-10T13:47:20.892Z', 'jobTitle': 'Graphic Artist', 'startYear': '2011', 'endYear': 'Present', 'startMonth': 'April', 'endMonth': 'None', 'relevant': True, 'applicantId': 20}]
     ranges = []
     for exp in relevant_experience:
         if not exp.get("relevant", False):
@@ -223,7 +223,7 @@ def score_experience_years(
         end_index = end_year * 12 + end_month
 
         ranges.append((start_index, end_index))
-
+    print("RANGESSSSSS", ranges)
     if not ranges:
         return (relevant_experience, 0.0, 0.0)
 
@@ -238,7 +238,9 @@ def score_experience_years(
             merged.append((start, end))
 
     # Step 3: Compute total months
-    total_months = min(sum(end - start for start, end in merged), 0)
+    print("MERGEDDDD", merged)
+    print("MERGE SUM", sum(end - start for start, end in merged))
+    total_months = sum(end - start for start, end in merged)
     total_years = total_months // 12
     remaining_months = total_months % 12
 

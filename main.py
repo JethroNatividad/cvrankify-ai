@@ -62,6 +62,8 @@ def handle_extraction(job):
 
 
 def score_applicant(job):
+    # status_code, resp_json = set_status(applicant_id, "processing")
+    # print(f"Set status to processing: {status_code}, {resp_json}")
     print(f"Scoring applicant {job.id}")
     applicant_id = job.data.get("applicantId")
     applicant_data = job.data.get("applicantData")
@@ -169,6 +171,7 @@ def score_applicant(job):
             education_score,
             timezone_score,
             overall_score,
+            total_years_with_months,
         )
         print(f"Updated applicant scores: {status_code}, {resp_json}")
         status_code, resp_json = set_status(applicant_id, "completed")
