@@ -23,13 +23,12 @@ Mark as "true" only if:
   - The role directly involves duties, tools, or skills related to the target job.
   - The title or function is in the same professional field or a clear feeder role.
   - There is strong evidence of transferable technical or domain knowledge 
-    (e.g., Programmer → Web Developer, IT Support → Front-End Developer).
 
 Mark as "false" if:
   - The role is administrative, clerical, medical, retail, or unrelated to the target field.
   - The title does not suggest technical, digital, or development work relevant to the target.
   - The position focuses on coordination, support, or management in a non-technical context.
-  - The overlap is vague or indirect (e.g., "Data Manager" in a health project, "Admin Aide", 
+  - The overlap is vague or indirect (e.g., "Data Manager", "Admin Aide", 
     "Teleconsultation Admin", or "Coordinator" unrelated to programming).
 
 Additional Notes:

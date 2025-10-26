@@ -354,5 +354,5 @@ def extract_text_word_level_columns(path, debug=False):
 
 
 # # test on resumes/in.pdf
-# pdf_text = extract_text_word_level_columns("resumes/in.pdf", debug=True)
+# pdf_text = extract_text_word_level_columns("Applicant_4_Resume.pdf", debug=True)
 # print(pdf_text)

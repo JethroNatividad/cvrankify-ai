@@ -80,7 +80,7 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
         messages=[
             {
                 "role": "user",
-                "content": f"{data}",
+                "content": json.dumps(data, ensure_ascii=False),
             },
         ],
         think=False,
@@ -88,6 +88,7 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
 
     skills_match_response = response["message"]["content"].strip()
 
+    print(f"Skills Match Response: {skills_match_response}")
     try:
         skills_match_json = json.loads(skills_match_response)
         total_score = 0
