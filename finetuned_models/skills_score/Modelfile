@@ -14,6 +14,8 @@ Rules:
   - Explicit match (job skill appears directly in CV skills) = 1.0
   - Implied match (CV skill reasonably implies the job skill) = 0.5
   - Missing skill = 0
+  - Overly generic relations (e.g., "Web Development → JavaScript", "Programming → Python") are NOT valid implied matches.
+  - Implied matches must be justified by *specific, technical dependency or overlap*, not just general domain similarity.
   - Final Score = (sum of all job skill scores) / (number of job skills) * 100
   - Return a structured JSON with each job skill's breakdown and the final score.
 
