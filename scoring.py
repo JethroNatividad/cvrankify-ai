@@ -73,18 +73,24 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
         "job_skills": job_skills,
         "cv_skills": applicant_skills,
     }
-    print(f"{data}")
 
     response = client.chat(
         model=model,
         messages=[
             {
                 "role": "user",
-                "content": json.dumps(data, ensure_ascii=False),
+                "content": json.dumps(
+                    data,
+                    indent=2,
+                ),
             },
         ],
         think=False,
     )
+
+    # Proper pretty-printed JSON output
+    print("DATA SENT:")
+    print(json.dumps(data, indent=2))
 
     skills_match_response = response["message"]["content"].strip()
 
@@ -97,7 +103,31 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
         score = total_score / len(job_skills) if job_skills else 0
     except json.JSONDecodeError as e:
         print(f"JSON decode error: {e}")
-        score = 0
+        print("Passing to json fixer model...")
+        # Try to fix JSON using json_fixer model
+        fixer_response = client.chat(
+            model="json_fixer",
+            messages=[
+                {
+                    "role": "user",
+                    "content": skills_match_response,
+                },
+            ],
+            think=False,
+        )
+        fixed_json_str = fixer_response["message"]["content"].strip()
+        print(f"Fixed JSON Response: {fixed_json_str}")
+        try:
+            skills_match_json = json.loads(fixed_json_str)
+            total_score = 0
+            for skill_entry in skills_match_json["job_skills"]:
+                total_score += skill_entry.get("score", 0)
+            score = total_score / len(job_skills) if job_skills else 0
+        except json.JSONDecodeError as e:
+            print(f"JSON decode error after fixing: {e}")
+            print("Unable to parse skills match JSON.")
+            score = 0
+            skills_match_json = {"job_skills": []}
 
     # Replace match_type with matchType, skill with jobSkill, from_cv with applicantSkill
     skills_match_json = {

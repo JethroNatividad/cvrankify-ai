@@ -50,7 +50,7 @@ def extract_resume_data(pdf_text: str) -> dict:
                 "content": pdf_text,
             },
         ],
-        think=False,
+        think=True,
     )
 
     edu_timezone_response = clean_response(edu_timezone_response["message"]["content"])

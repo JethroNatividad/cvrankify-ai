@@ -20,7 +20,7 @@ from scoring import (
     score_experience_years,
     tz_score,
 )
-from extract2 import extract_text_word_level_columns
+from extract2 import extract_text_word_level_columns, normal_extract_text
 
 # Load environment variables from .env file
 load_dotenv()
@@ -43,7 +43,9 @@ def handle_extraction(job):
     try:
         response = minio_client.get_object(os.getenv("MINIO_BUCKET_NAME"), resume_path)
         data = response.read()
-        resume_text = extract_text_word_level_columns(data)
+        # resume_text = extract_text_word_level_columns(data)
+        resume_text = normal_extract_text(data)
+        print("Extracted Resume Text:", resume_text)
         resume_data = extract_resume_data(resume_text)
         status_code, resp_json = set_status(applicant_id, "parsing")
         print(f"Set status to parsing: {status_code}, {resp_json}")
@@ -186,14 +188,13 @@ def score_applicant(job):
 
 
 async def process(job, job_token):
-
-    # return type Future based on Worker
     print(job.name)
     if job.name == "process-resume":
-        return handle_extraction(job)
+        await asyncio.to_thread(handle_extraction, job)
+        return "ok"
     if job.name == "score-applicant":
-        return score_applicant(job)
-
+        await asyncio.to_thread(score_applicant, job)
+        return "ok"
     return None
 
 

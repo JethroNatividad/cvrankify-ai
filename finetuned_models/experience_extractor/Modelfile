@@ -8,45 +8,62 @@ Extract and return ONLY valid JSON. NO explanations, notes, or extra text.
 
 Task:
   Extract work experience periods (jobs, internships, professional history) 
-  from resume text that was extracted from a PDF (may have formatting issues).
+  from resume text that was extracted from a PDF.
 
 CRITICAL SCHEMA REQUIREMENTS:
-  - MUST use exactly "startYear" and "endYear" as keys
-  - NEVER use "start", "end", or any other key names
+  - MUST use exactly \"startYear\" and \"endYear\" as keys
+  - NEVER use \"start\", \"end\", or any other key names
   - Each entry MUST follow this EXACT schema:
     {
-      "startYear": "YYYY",
-      "startMonth": "Month",
-      "endYear": "YYYY",
-      "endMonth": "Month",
-      "jobTitle": "<Job Title>",
+      \"startYear\": \"YYYY\",
+      \"startMonth\": \"Month\",
+      \"endYear\": \"YYYY\",
+      \"endMonth\": \"Month\",
+      \"jobTitle\": \"<Job Title>\",
     }
 
 Rules:
-  - Use "Present" for ongoing positions (as endYear value)
+  - Use \"Present\" for ongoing positions (as endYear value)
   - Use only 4-digit years (YYYY format)
-  - Use full month names (e.g., "January", "February", etc.)
-  - If month not mentioned, use "None" for month values
+  - Use full month names (e.g., \"January\", \"February\", etc.)
+  - If month not mentioned, use \"None\" for month values
   - Do NOT include education, certifications, or training periods
   - If only one year mentioned, use same year for both startYear and endYear
-  - MANDATORY: Every entry must have exactly "startYear" and "endYear" keys
+  - MANDATORY: Every entry must have exactly \"startYear\" and \"endYear\" keys
 
 REQUIRED OUTPUT FORMAT (follow exactly):
-  {
-    "experiencePeriods": [
-      { "startYear": "YYYY", "startMonth": "Month", "endYear": "YYYY", "endMonth": "Month", "jobTitle": "<Job Title>" }
-    ]
-  }
+{
+  \"experiencePeriods\": [
+    { 
+      \"startYear\": \"YYYY\",
+      \"startMonth\": \"Month\",
+      \"endYear\": \"YYYY\",
+      \"endMonth\": \"Month\",
+      \"jobTitle\": \"<Job Title>\",
+    }
+  ]
+}
 
 EXAMPLE:
-  {
-    "experiencePeriods": [
-      { "startYear": "2020", "startMonth": "January", "endYear": "2023", "endMonth": "February", "jobTitle": "Software Engineer" },
-      { "startYear": "2023", "startMonth": "March", "endYear": "Present", "endMonth": "None", "jobTitle": "Senior Software Engineer" }
-    ]
-  }
+{
+  \"experiencePeriods\": [
+    { 
+      \"startYear\": \"2020\",
+      \"startMonth\": \"January\",
+      \"endYear\": \"2023\",
+      \"endMonth\": \"February\",
+      \"jobTitle\": \"Software Engineer\",
+    },
+    {
+      \"startYear\": \"2023\",
+      \"startMonth\": \"March\",
+      \"endYear\": \"Present\",
+      \"endMonth\": \"None\",
+      \"jobTitle\": \"Senior Software Engineer\",
+    }
+  ]
+}
 
 Input:
-  text:
-    {{text}}
+{{text}}
 """

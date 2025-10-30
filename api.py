@@ -232,3 +232,14 @@ def update_applicant_scores(
     print("DATA TO SEND:", data)
     response = requests.post(API_URL, headers=headers, data=json.dumps(data))
     return response.status_code, response.json()
+
+
+def queue_all_applicants(job_id: int):
+    API_URL = "http://localhost:3000/api/trpc/job.queueScoringAll"
+    data = {
+        "json": {
+            "jobId": job_id,
+        }
+    }
+    response = requests.post(API_URL, headers=headers, data=json.dumps(data))
+    return response.status_code, response.json()
