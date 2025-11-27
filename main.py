@@ -63,6 +63,35 @@ def handle_extraction(job):
         response.release_conn()
 
 
+def parse_timezone(tz_string):
+    """
+    Converts 'GMT+5:30' or 'UTC-4' into a float offset like 5.5 or -4.0
+    """
+    if "GMT" in tz_string:
+        tz = tz_string.split("GMT")[-1]
+    elif "UTC" in tz_string:
+        tz = tz_string.split("UTC")[-1]
+    else:
+        return None  # Unknown format
+
+    # Example tz: +5:30, -4, +8
+    sign = 1
+    if tz.startswith("-"):
+        sign = -1
+        tz = tz[1:]
+    elif tz.startswith("+"):
+        tz = tz[1:]
+
+    # Split hour/min if needed
+    if ":" in tz:
+        hours, mins = tz.split(":")
+        offset = sign * (float(hours) + float(mins) / 60)
+    else:
+        offset = sign * float(tz)
+
+    return offset
+
+
 def score_applicant(job):
     # status_code, resp_json = set_status(applicant_id, "processing")
     # print(f"Set status to processing: {status_code}, {resp_json}")
@@ -144,25 +173,42 @@ def score_applicant(job):
         job_timezone = job_data.get("timezone", "Unknown")
 
         if applicant_timezone != "Unknown" and job_timezone != "Unknown":
-            applicant_tz = applicant_timezone.split("GMT")[-1]
-            applicant_tz = float(applicant_tz)
+            # applicant_tz = applicant_timezone.split("GMT")[-1]
+            # applicant_tz = float(applicant_tz)
+            applicant_tz = parse_timezone(applicant_timezone)
+            job_tz = parse_timezone(job_timezone)
 
-            job_tz = job_timezone.split("GMT")[-1]
-            job_tz = float(job_tz)
-
-            (timezone_score, hour_gap) = tz_score(applicant_tz, job_tz)
+            if applicant_tz is not None and job_tz is not None:
+                (timezone_score, hour_gap) = tz_score(applicant_tz, job_tz)
         # print(f"Applicant Timezone: {applicant_timezone}, Job Timezone: {job_timezone}")
         # print(f"Timezone Score: {timezone_score}")
+
+        # VALIDATE WEIGHTS
+        skills_weight = float(job_data.get("skillsWeight", 0))
+        experience_weight = float(job_data.get("experienceWeight", 0))
+        education_weight = float(job_data.get("educationWeight", 0))
+        timezone_weight = float(job_data.get("timezoneWeight", 0))
+
+        weight_sum = (
+            skills_weight + experience_weight + education_weight + timezone_weight
+        )
+
+        if abs(weight_sum - 1.0) > 0.001:  # Allow small floating point tolerance
+            error_msg = f"Invalid weights configuration for job {job_data.get('id')}. Sum of weights must equal 1.0, got {weight_sum}"
+            print(error_msg)
+            status_code, resp_json = set_status(applicant_id, "failed")
+            print(f"Set status to failed: {status_code}, {resp_json}")
+            raise ValueError(error_msg)
 
         # OVERALL SCORE
         print(
             f"Skills Score: {skills_score}, Experience Score: {experience_score}, Education Score: {education_score}, Timezone Score: {timezone_score}"
         )
         overall_score = (
-            float(skills_score) * float(job_data.get("skillsWeight", 0))
-            + float(experience_score) * float(job_data.get("experienceWeight", 0))
-            + float(education_score) * float(job_data.get("educationWeight", 0))
-            + float(timezone_score) * float(job_data.get("timezoneWeight", 0))
+            float(skills_score) * skills_weight
+            + float(experience_score) * experience_weight
+            + float(education_score) * education_weight
+            + float(timezone_score) * timezone_weight
         )
         overall_score = round(overall_score, 2)
 

@@ -129,6 +129,35 @@ def score_skills_match(job_skills: list[str], applicant_skills: list[str]):
             score = 0
             skills_match_json = {"job_skills": []}
 
+    # Check if all keys are present in each entry, if not, pass to json fixer model
+    for entry in skills_match_json["job_skills"]:
+        if not all(key in entry for key in ["skill", "match_type", "from_cv", "score"]):
+            print("Missing keys in skills match entry, passing to json fixer model...")
+            fixer_response = client.chat(
+                model="json_fixer",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": skills_match_response,
+                    },
+                ],
+                think=False,
+            )
+            fixed_json_str = fixer_response["message"]["content"].strip()
+            print(f"Fixed JSON Response: {fixed_json_str}")
+            try:
+                skills_match_json = json.loads(fixed_json_str)
+                total_score = 0
+                for skill_entry in skills_match_json["job_skills"]:
+                    total_score += skill_entry.get("score", 0)
+                score = total_score / len(job_skills) if job_skills else 0
+            except json.JSONDecodeError as e:
+                print(f"JSON decode error after fixing: {e}")
+                print("Unable to parse skills match JSON.")
+                score = 0
+                skills_match_json = {"job_skills": []}
+            break
+
     # Replace match_type with matchType, skill with jobSkill, from_cv with applicantSkill
     skills_match_json = {
         "job_skills": [
@@ -279,7 +308,7 @@ def score_experience_years(
 
     # Score calculation based on required years, if more than required, give bonus
     if total_years_with_months >= job_relevant_experience_years:
-        bonus = (total_years_with_months - job_relevant_experience_years) * 10
+        bonus = (total_years_with_months - job_relevant_experience_years) * 3
         score = 100 + bonus
     else:
         score = (total_years_with_months / job_relevant_experience_years) * 100
