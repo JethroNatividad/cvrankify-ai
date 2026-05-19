@@ -1,3 +1,6 @@
+# ! IMPORTANT !
+# MIGRATED AND MERGED INTO https://github.com/JethroNatividad/CVRankify_Monorepo
+
 # CVRankify AI
 
 A Redis-based job processing worker for CV ranking and analysis using AI.
